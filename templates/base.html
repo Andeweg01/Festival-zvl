@@ -67,41 +67,59 @@
             <!-- Left -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                <a class="nav-link waves-effect" href="#">PROGRAM
+                <a class="nav-link" href="#">PROGRAM
                     <span class="sr-only">(current)</span>
                 </a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link waves-effect" href="" target="_blank">TICKETS</a>
+                <a class="nav-link" href="" target="_blank">TICKETS</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link waves-effect" href=""
+                <a class="nav-link" href=""
                     target="_blank">PREVIOUSLY</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link waves-effect" href="" target="_blank">SPONSORING</a>
+                <a class="nav-link" href="" target="_blank">SPONSORING</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link waves-effect" href="" target="_blank">MEDIA</a>
+                <a class="nav-link" href="" target="_blank">MEDIA</a>
                 </li>
             </ul>
 
             <!-- Right -->
             <ul class="navbar-nav nav-flex-icons">
                 <li class="nav-item">
-                <a href="" class="nav-link waves-effect">
+                <a href="#" class="dropdown-toggle mr-4" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user"></i>
                 </a>
+                <div class="dropdown-menu" aria-labelledby="user-options">
+                    {% if request.user.is_authenticated %}
+                        {% if request.user.is_superuser %}
+                            <a href="#" class="dropdown-item">Concert Management</a>
+                        {% endif %}
+                            <a href="#" class="dropdown-item">User Profile</a>
+                            <a href="{% url 'account_logout' %}" class="dropdown-item">Log Out</a>
+                        {% else %}
+                            <a href="{% url 'account_signup' %}" class="dropdown-item">Create Account</a>
+                            <a href="{% url 'account_login' %}" class="dropdown-item">Log In</a>
+                        {% endif %}
+                </div>
                 </li>
                 <li class="nav-item">
-                <a href="" class="nav-link waves-effect">
+                <a class="{% if grand_total %}text-info{% else %}text-grey{% endif %}nav-link" href="#">
                     <i class="fas fa-shopping-cart"></i>
+                <p class="my-0">
+                {% if grand_total %}
+                    &euro; {{ grand_total|floatformat:2 }}
+                {% else %}
+                    &euro; 0,00
+                {% endif %}
+                </p>
                 </a>
-                </li>
             </ul>
             </div>
         </div>
-    </nav>
+        </nav>
     <!-- Navbar -->
     </header>
 
