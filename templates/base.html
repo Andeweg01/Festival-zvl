@@ -46,81 +46,69 @@
   </head>
   <body>
     <header class="container-fluid fixed-top">
-        <!-- Navbar -->
-        <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
-        <div class="container">
-
-            <!-- Logo -->
-            <a class="navbar-brand waves-effect" href="{% url 'home' %}">
-            <strong class="blue-text">Festival-zvl</strong>
-            </a>
-
-            <!-- Collapse -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <!-- Links -->
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-            <!-- Left -->
+        <!--Navbar -->
+    <nav class="mb-1 navbar sticky-top navbar-expand-lg navbar-light white">
+    <a class="navbar-brand" href="{% url 'home' %}">Festival</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+        aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                <a class="nav-link" href="#">PROGRAM
+                    <a class="nav-link" href="#">Program
                     <span class="sr-only">(current)</span>
-                </a>
+                    </a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="" target="_blank">TICKETS</a>
+                    <a class="nav-link" href="#">Tickets</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href=""
-                    target="_blank">PREVIOUSLY</a>
+                    <a class="nav-link" href="#">Previously</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="" target="_blank">SPONSORING</a>
+                    <a class="nav-link" href="#">Sponsoring</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="" target="_blank">MEDIA</a>
+                    <a class="nav-link" href="#">Media</a>
                 </li>
             </ul>
-
-            <!-- Right -->
-            <ul class="navbar-nav nav-flex-icons">
-                <li class="nav-item">
-                <a href="#" class="dropdown-toggle mr-4" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <ul class="navbar-nav ml-auto nav-flex-icons">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="user-options" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user"></i>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="user-options">
-                    {% if request.user.is_authenticated %}
-                        {% if request.user.is_superuser %}
-                            <a href="#" class="dropdown-item">Concert Management</a>
-                        {% endif %}
-                            <a href="#" class="dropdown-item">User Profile</a>
-                            <a href="{% url 'account_logout' %}" class="dropdown-item">Log Out</a>
-                        {% else %}
-                            <a href="{% url 'account_signup' %}" class="dropdown-item">Create Account</a>
-                            <a href="{% url 'account_login' %}" class="dropdown-item">Log In</a>
-                        {% endif %}
-                </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                        aria-labelledby="user-options">
+                            {% if request.user.is_authenticated %}
+                                {% if request.user.is_superuser %}
+                                    <a href="#" class="dropdown-item">Concert Management</a>
+                                {% endif %}
+                                    <a href="#" class="dropdown-item">User Profile</a>
+                                    <a href="{% url 'account_logout' %}" class="dropdown-item">Log Out</a>
+                                {% else %}
+                                    <a href="{% url 'account_signup' %}" class="dropdown-item">Create Account</a>
+                                    <a href="{% url 'account_login' %}" class="dropdown-item">Log In</a>
+                                {% endif %}
+                    </div>
                 </li>
                 <li class="nav-item">
-                <a class="{% if grand_total %}text-info{% else %}text-grey{% endif %}nav-link" href="#">
-                    <i class="fas fa-shopping-cart"></i>
-                <p class="my-0">
-                {% if grand_total %}
-                    &euro; {{ grand_total|floatformat:2 }}
-                {% else %}
-                    &euro; 0,00
-                {% endif %}
-                </p>
-                </a>
+                    <a class="{% if grand_total %}text-info{% else %}text-grey{% endif %}nav-link" href="#">
+                        <i class="fas fa-shopping-cart"></i>
+                    <p class="my-0">
+                        {% if grand_total %}
+                            &euro; {{ grand_total|floatformat:2 }}
+                        {% else %}
+                            &euro; 0,00
+                        {% endif %}
+                    </p>
+                    </a>
+                </li>
             </ul>
-            </div>
         </div>
-        </nav>
-    <!-- Navbar -->
+    </nav>
+    <!--/.Navbar -->
     </header>
 
     {% if messages %}
