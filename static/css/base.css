@@ -3,11 +3,10 @@ html {
 }
 
 body {
+    margin: 0;
     background: url('/media/Oester_2013.jpg') no-repeat right center fixed;
     color: #00396D;
     font-family: 'Raleway', sans-serif;
-    font-family: 'Roboto', sans-serif;
-    font-family: 'Satisfy', cursive;
 }
 
 /* from Bulma as suggested by CI */
@@ -30,3 +29,15 @@ body {
 .fzv-logo {
     width: fit-content;
 }
+
+/* tweaks in bootstrap styles */
+.container-fluid {
+    padding: 0 !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+.row, .col {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
