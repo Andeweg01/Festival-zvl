@@ -1,0 +1,32 @@
+html {
+    height: 100%;
+}
+
+body {
+    background: url('/media/Oester_2013.jpg') no-repeat right center fixed;
+    color: #00396D;
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Satisfy', cursive;
+}
+
+/* from Bulma as suggested by CI */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.uppercase-font {
+    text-transform: uppercase;
+}
+
+.pearl-text {
+    font-family: 'Satisfy', cursive;
+}
+
+.fzv-logo {
+    width: fit-content;
+}
