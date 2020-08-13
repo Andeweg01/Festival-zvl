@@ -42,75 +42,81 @@
   <body>
     <header class="container-fluid fixed-top">
         <!--Navbar -->
-    <nav class="mb-1 navbar sticky-top navbar-expand-lg navbar-light white">
-    <a class="navbar-brand fzv-logo" href="{% url 'home' %}"><img class="fzv-logo" src="/media/FestivalZVL_logo.png"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
-        aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Program
-                    <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Tickets</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="previous-editions" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">Previous
-                    </a>
-                    <div class="dropdown-menu dropdown-default" aria-labelledby="previous-editions">
-                    <a class="dropdown-item" href="#">2019</a>
-                    <a class="dropdown-item" href="#">2018</a>
-                    <a class="dropdown-item" href="#">2017</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Sponsoring</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Media</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto nav-flex-icons">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="user-options" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-user"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right dropdown-default"
-                        aria-labelledby="user-options">
-                            {% if request.user.is_authenticated %}
-                                {% if request.user.is_superuser %}
-                                    <a href="#" class="dropdown-item">Concert Management</a>
-                                {% endif %}
-                                    <a href="#" class="dropdown-item">User Profile</a>
-                                    <a href="{% url 'account_logout' %}" class="dropdown-item">Log Out</a>
-                                {% else %}
-                                    <a href="{% url 'account_signup' %}" class="dropdown-item">Create Account</a>
-                                    <a href="{% url 'account_login' %}" class="dropdown-item">Log In</a>
-                                {% endif %}
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="{% if grand_total %}text-info{% else %}text-grey{% endif %}nav-link" href="#">
-                        <i class="fas fa-shopping-cart"></i>
-                    <p class="my-0">
-                        {% if grand_total %}
-                            &euro; {{ grand_total|floatformat:2 }}
-                        {% else %}
-                            &euro; 0,00
-                        {% endif %}
-                    </p>
-                    </a>
-                </li>
-            </ul>
+        <nav class="mb-1 navbar navbar-expand-lg navbar-light white">
+        <a class="navbar-brand fzv-logo" href="{% url 'home' %}"><img class="fzv-logo" src="/media/FestivalZVL_logo.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+            aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Program
+                        <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Tickets</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="previous-editions" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Previous
+                        </a>
+                        <div class="dropdown-menu dropdown-default" aria-labelledby="previous-editions">
+                        <a class="dropdown-item" href="#">2019</a>
+                        <a class="dropdown-item" href="#">2018</a>
+                        <a class="dropdown-item" href="#">2017</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sponsoring</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Media</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto nav-flex-icons">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="user-options" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                            aria-labelledby="user-options">
+                                {% if request.user.is_authenticated %}
+                                    {% if request.user.is_superuser %}
+                                        <a href="#" class="dropdown-item">Concert Management</a>
+                                    {% endif %}
+                                        <a href="#" class="dropdown-item">User Profile</a>
+                                        <a href="{% url 'account_logout' %}" class="dropdown-item">Log Out</a>
+                                    {% else %}
+                                        <a href="{% url 'account_signup' %}" class="dropdown-item">Create Account</a>
+                                        <a href="{% url 'account_login' %}" class="dropdown-item">Log In</a>
+                                    {% endif %}
+                        </div>
+                    </li>
+                    <li class="nav-item mt-2">
+                        <a class="{% if grand_total %}text-info{% else %}text-grey{% endif %}nav-link" href="#">
+                            <i class="fas fa-shopping-cart"></i>
+                        <p class="my-0">
+                            {% if grand_total %}
+                                &euro; {{ grand_total|floatformat:2 }}
+                            {% else %}
+                                &euro; 0,00
+                            {% endif %}
+                        </p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <!--/.Navbar -->
+    <div id="title-ticket-counter" class="row text-center mt-n2">
+        <div class="col bg-blue text-white">
+            <h5 class="my-1">Edition 32: 18 September - 16 October 2020 <strong>&nbsp;&nbsp;<span class="pearl-text">
+                Boundless Classical Pearls</span>&nbsp;&nbsp;</strong> Still x tickets available!</h5>
         </div>
-    </nav>
-    <!--/.Navbar -->
+    </div>
     </header>
 
     {% if messages %}

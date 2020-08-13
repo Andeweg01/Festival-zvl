@@ -4,9 +4,18 @@ html {
 
 body {
     margin: 0;
-    background: url('/media/Oester_2013.jpg') no-repeat right center fixed;
+    background: url('/media/Pearls.jpg') no-repeat right center fixed;
     color: #00396D;
     font-family: 'Raleway', sans-serif;
+}
+
+/* colours */
+.fzv-blue {
+    color: #00396D;
+}
+
+.bg-blue {
+    background-color: #00396D;
 }
 
 /* from Bulma as suggested by CI */
