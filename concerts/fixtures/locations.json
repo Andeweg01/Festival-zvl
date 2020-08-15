@@ -1,0 +1,37 @@
+// JSON Document
+
+[
+	{
+		"pk": 1,
+		"model": "concerts.location",
+		"fields": {
+			"loc_name": "Scheldetheater",
+			"friendly_name": "Scheldetheater Terneuzen",
+			"loc_address": "Westkolkstraat 16",
+			"loc_pc": "4531 AW",
+			"loc_place": "Terneuzen"
+		}
+	},
+	{
+		"pk": 2,
+		"model": "concerts.location",
+		"fields": {
+			"loc_name": "Basiliek",
+			"friendly_name": "Sint-Willibrordusbasiliek",
+			"loc_address": "Steenstraat 2",
+			"loc_pc": "4561 AS",
+			"loc_place": "Hulst"
+		}
+	},
+	{
+		"pk": 3,
+		"model": "concerts.location",
+		"fields": {
+			"loc_name": "Mauritshof",
+			"friendly_name": "Mauritshof",
+			"loc_address": "Mauritsweg 5",
+			"loc_pc": "4515 LA",
+			"loc_place": "IJzendijke"
+		}
+	}
+]

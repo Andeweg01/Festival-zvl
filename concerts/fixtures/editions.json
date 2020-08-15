@@ -1,0 +1,60 @@
+// JSON Document
+
+[
+	{
+		"pk": 1,
+		"model": "concerts.edition",
+		"fields": {
+			"name": "2020",
+			"friendly_name": "edition 2020"
+		}
+	},
+	{
+		"pk": 2,
+		"model": "concerts.edition",
+		"fields": {
+			"name": "2019",
+			"friendly_name": "edition 2019"
+		}
+	},
+	{
+		"pk": 3,
+		"model": "concerts.edition",
+		"fields": {
+			"name": "2018",
+			"friendly_name": "edition 2018"
+		}
+	},
+	{
+		"pk": 4,
+		"model": "concerts.edition",
+		"fields": {
+			"name": "2017",
+			"friendly_name": "edition 2017"
+		}
+	},
+	{
+		"pk": 5,
+		"model": "concerts.edition",
+		"fields": {
+			"name": "2016",
+			"friendly_name": "edition 2016"
+		}
+	},
+	{
+		"pk": 6,
+		"model": "concerts.edition",
+		"fields": {
+			"name": "2015",
+			"friendly_name": "edition 2015"
+		}
+	},
+	{
+		"pk": 7,
+		"model": "concerts.edition",
+		"fields": {
+			"name": "2014",
+			"friendly_name": "edition 2014"
+		}
+	}
+]

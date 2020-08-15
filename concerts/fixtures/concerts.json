@@ -1,0 +1,26 @@
+// JSON Document
+
+[
+	{
+		"pk": 1,
+		"model": "concerts.concert",
+		"fields": {
+			"sku": "fzvc01",
+			"concert_name": "Kraayenhof",
+			"friendly_name": "Carel Kraayenhof and Matangi Quartet",
+			"concert_date": NONE,
+			"edition": 1,
+			"concert_subtitle": "Beethoven vs Piazzolla",
+			"concert_theme": "Beethoven vs Piazzolla",
+			"concert_conductor": "",
+			"concert_soloist": "Carel Kraayenhof",
+			"concert_program": "Beethoven vs Piazzolla",
+			"concert_description": "What Beethoven was for classical music, Astor Piazzolla was for tango. Carel Kraayenhof and Matangi Quartet bring these two musical icons together.",
+			"concert_time": "20:00:00",
+			"concert_price": 15,
+			"concert_availability": 400,
+			"concert_image": "01_fzv2020.jpg",
+			"location": 1
+		}
+	}
+]
