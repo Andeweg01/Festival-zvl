@@ -41,7 +41,9 @@ class Concert(models.Model):
     concert_program = models.CharField(max_length=254, null=True, blank=True)
     concert_description = models.TextField(null=True, blank=True)
     concert_time = models.TimeField(max_length=254, null=True, blank=True)
-    concert_price = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
+    concert_price = models.DecimalField(
+        max_digits=5, decimal_places=2, null=True, blank=True
+    )
     concert_availability = models.DecimalField(
         max_digits=4, decimal_places=0, null=True, blank=True
     )
