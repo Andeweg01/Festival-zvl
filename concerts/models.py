@@ -27,11 +27,13 @@ class Location(models.Model):
 
 
 class Concert(models.Model):
-    edition = models.ForeignKey('Edition', null=True, blank=True, on_delete=models.SET_NULL)
+    edition = models.ForeignKey(
+        'Edition', null=True, blank=True, on_delete=models.SET_NULL
+    )
     sku = models.CharField(max_length=254, null=True, blank=True)
     concert_name = models.CharField(max_length=254, null=True, blank=True)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
-    concert_date = models.CharField(max_length=254, null=True, blank=True)
+    concert_date = models.DateField(max_length=254, null=True, blank=True)
     concert_subtitle = models.CharField(max_length=254, null=True, blank=True)
     concert_theme = models.CharField(max_length=254, null=True, blank=True)
     concert_conductor = models.CharField(max_length=254, null=True, blank=True)
@@ -40,7 +42,11 @@ class Concert(models.Model):
     concert_description = models.TextField(null=True, blank=True)
     concert_time = models.TimeField(max_length=254, null=True, blank=True)
     concert_price = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)
-    concert_availability = models.DecimalField(max_digits=4, decimal_places=0, null=True, blank=True)
+    concert_availability = models.DecimalField(
+        max_digits=4, decimal_places=0, null=True, blank=True
+    )
     concert_url = models.URLField(max_length=1024, null=True, blank=True)
     concert_image = models.ImageField(max_length=254, null=True, blank=True)
-    location = models.ForeignKey('Location', null=True, blank=True, on_delete=models.SET_NULL)
+    location = models.ForeignKey(
+        'Location', null=True, blank=True, on_delete=models.SET_NULL
+    )
