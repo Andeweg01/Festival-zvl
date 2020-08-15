@@ -31,5 +31,49 @@
 			"loc_pc": "4515 LA",
 			"loc_place": "IJzendijke"
 		}
+	},
+	{
+		"pk": 4,
+		"model": "concerts.location",
+		"fields": {
+			"loc_name": "Halle",
+			"friendly_name": "De Halle",
+			"loc_address": "Rooseveltlaan 1A",
+			"loc_pc": "4571 HT",
+			"loc_place": "Axel"
+		}
+	},
+	{
+		"pk": 5,
+		"model": "concerts.location",
+		"fields": {
+			"loc_name": "GroteKerk",
+			"friendly_name": "Grote Kerk Groede",
+			"loc_address": "Markt 1",
+			"loc_pc": "4503 AG",
+			"loc_place": "Groede"
+		}
+	},
+	{
+		"pk": 6,
+		"model": "concerts.location",
+		"fields": {
+			"loc_name": "Industrieel",
+			"friendly_name": "Industrieel Museum Zeeland",
+			"loc_address": "Westkade 114",
+			"loc_pc": "4551 LA",
+			"loc_place": "Sas van Gent"
+		}
+	},
+	{
+		"pk": 7,
+		"model": "concerts.location",
+		"fields": {
+			"loc_name": "Hof",
+			"friendly_name": "Hof te Zande Kerk",
+			"loc_address": "Willem de Zwijgerlaan 1",
+			"loc_pc": "4587 CJ",
+			"loc_place": "Kloosterzande"
+		}
 	}
 ]
