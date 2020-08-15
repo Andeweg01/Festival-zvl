@@ -1,3 +1,45 @@
 from django.db import models
 
-# Create your models here.
+
+class Edition(models.Model):
+    name = models.CharField(max_length=4)
+    friendly_name = models.CharField(max_length=4)
+
+    def __string__(self):
+        return self.name
+
+    def get_friendly_name(self):
+        return self.friendly_name
+
+
+class Location(models.Model):
+    loc_name = models.CharField(max_length=254)
+    friendly_name = models.CharField(max_length=254)
+    loc_address = models.CharField(max_length=254, null=True, blank=True)
+    loc_pc = models.CharField(max_length=8, null=True, blank=True)
+
+    def __string__(self):
+        return self.name
+
+    def get_friendly_name(self):
+        return self.friendly_name
+
+
+class Concert(models.Model):
+    edition = models.ForeignKey('Edition', null=True, blank=True, on_delete=models.SET_NULL)
+    sku = models.CharField(max_length=254, null=True, blank=True)
+    concert_name = models.CharField(max_length=254)
+    friendly_name = models.CharField(max_length=254, null=True, blank=True)
+    concert_date = models.CharField(max_length=254)
+    concert_subtitle = models.CharField(max_length=254, null=True, blank=True)
+    concert_theme = models.CharField(max_length=254, null=True, blank=True)
+    concert_conductor = models.CharField(max_length=254, null=True, blank=True)
+    concert_soloist = models.CharField(max_length=254, null=True, blank=True)
+    concert_program = models.CharField(max_length=254, null=True, blank=True)
+    concert_description = models.TextField
+    concert_time = models.TimeField(max_length=254)
+    concert_price = models.DecimalField
+    concert_availability = models.DecimalField
+    concert_url = models.URLField(max_length=1024, null=True, blank=True)
+    concert_image = models.ImageField(max_length=254)
+    location = models.ForeignKey('Location', null=True, blank=True, on_delete=models.SET_NULL)
