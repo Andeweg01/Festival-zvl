@@ -2,65 +2,74 @@
 {% load static %}
 
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"><h4>Concerts 2020</h4></div>
-        </div>
-    </div>
+<div class="mt-5 pt-5">
+    <div class="container"></div>
+</div>
 {% endblock %}
 
 {% block content %}
 <!--Section: Cards-->
-<div class="container">
-      <section class="text-center">
-
+<div class="my-5 py-5">
+    <div class="container">
+        <section class="text-center">
+        <div class="row">
+            <div class="col"><h2 class="mb-5">Concerts edition 2020</h2></div>
+        </div>
         <!--Grid row-->
         <div class="row mb-4 wow fadeIn">
 
-          <!--Grid column-->
-          {% for concert in concerts %}
-          <div class="col-md-6 mb-4">
+            <!--Grid column-->
+            {% for concert in concerts %}
+            <div class="col-md-6 mb-4">
 
             <!--Card-->
             <div class="card">
 
-              <!--Card image-->
-              <div class="view overlay">
-              {% if concert.concert_image %}
+                <!--Card image-->
+                <div class="view overlay">
+                {% if concert.concert_image %}
                 <div class="embed-responsive rounded-top">
-                  <img src="{{ concert.concert_image.url }}" alt="{{ concert.concert_name }}" width="100%"></iframe>
+                    <img src="{{ concert.concert_image.url }}" alt="{{ concert.concert_name }}" width="100%"></iframe>
                 </div>
-              {% else %}
+                {% else %}
                 <div class="embed-responsive rounded-top">
-                  <img src="{{ MEDIA_URL }}no_image.jpg" alt="{{ concert.concert_name }}" width="100%"></iframe>
+                    <img src="{{ MEDIA_URL }}no_image.jpg" alt="{{ concert.concert_name }}" width="100%"></iframe>
                 </div>
-              {% endif %}
-              </div>
+                {% endif %}
+                </div>
 
-              <!--Card content-->
-              <div class="card-body">
+                <!--Card content-->
+                <div class="card-body">
                 <!--Title-->
                 <h4 class="card-title">{{ concert.concert_name }}</h4>
                 <!--Text-->
                 <p class="card-text">{{ concert.concert_date }}</p>
-				  <a href="" target="_blank"
-                  class="btn btn-primary btn-md uppercase-font">more
-                  <i class="fas fa-play ml-2"></i>
+                    <a href="" target="_blank"
+                    class="btn btn-primary btn-md uppercase-font">more
+                    <i class="fas fa-play ml-2"></i>
                 </a>
-				  <a href="" target="_blank"
-                  class="btn btn-warning btn-md uppercase-font">buy tickets
-                  <i class="fas fa-play ml-2"></i>
+                    <a href="" target="_blank"
+                    class="btn btn-warning btn-md uppercase-font">buy tickets
+                    <i class="fas fa-play ml-2"></i>
                 </a>
 
-              </div>
+                </div>
 
             </div>
             <!--/.Card-->
 
-          </div>
+            </div>
           {% endfor %}
           <!--Grid column-->
+
+          <!-- Back to Top button -->
+            <div class="my-5 text-center">
+                <button class="btn btn-outline-blue btn-lg" onclick="topFunction()" id="myBtn" title="Go to top">Back to Top
+                <i class="far fa-arrow-alt-circle-up ml-2"></i></button><br><br>
+            </div>
+          <!-- Back to Top button -->
         </div>
-      </section>
+        </section>
+    </div>
 </div>
 {% endblock %}

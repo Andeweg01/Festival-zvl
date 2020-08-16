@@ -5,7 +5,7 @@ html {
 body {
     margin: 0;
     background: url('/media/Oester_back.jpg') no-repeat right center fixed;
-    height: calc(100vh = 137px);
+    height: calc(100vh - 140px);
     color: #00396D;
     font-family: 'Raleway', sans-serif;
 }
@@ -50,4 +50,3 @@ body {
     margin-left: 0 !important;
     margin-right: 0 !important;
 }
-
