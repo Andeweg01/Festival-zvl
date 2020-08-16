@@ -82,7 +82,7 @@
                         <div class="dropdown-menu dropdown-default" aria-labelledby="user-options">
                                 {% if request.user.is_authenticated %}
                                     {% if request.user.is_superuser %}
-                                        <a href="#" class="dropdown-item">Concert Management</a>
+                                        <a href="#" class="dropdown-item">Management</a>
                                     {% endif %}
                                         <a href="#" class="dropdown-item">User Profile</a>
                                         <a href="{% url 'account_logout' %}" class="dropdown-item">Log Out</a>
@@ -93,16 +93,16 @@
                         </div>
                     </li>
                     <li class="nav-item mt-2">
+                        <p class="my-0">
                         <a class="{% if grand_total %}text-info{% else %}text-grey{% endif %}nav-link" href="#">
                             <i class="fas fa-shopping-cart"></i>
-                        <p class="my-0">
                             {% if grand_total %}
                                 &euro; {{ grand_total|floatformat:2 }}
                             {% else %}
                                 &euro; 0,00
                             {% endif %}
-                        </p>
                         </a>
+                        </p>
                     </li>
                 </ul>
             </div>
@@ -110,8 +110,8 @@
         <!--/.Navbar -->
     <div id="title-ticket-counter" class="row text-center mt-n2">
         <div class="col bg-blue text-white">
-            <h5 class="my-1">Edition 32: 18 September - 16 October 2020 <strong>&nbsp;&nbsp;<span class="pearl-text">
-                Boundless Classical Pearls</span>&nbsp;&nbsp;</strong> Still x tickets available!</h5>
+            <h5 class="my-1">Edition 32: 18/09 - 16/10 2020 <strong> ~ <span class="pearl-text d-none d-md-block">
+                Boundless Classical Pearls</span> ~ </strong> x tickets available!</h5>
         </div>
     </div>
     </header>
