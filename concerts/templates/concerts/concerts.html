@@ -27,12 +27,12 @@
               <!--Card image-->
               <div class="view overlay">
               {% if concert.concert_image %}
-                <div class="embed-responsive embed-responsive-16by9 rounded-top">
-                  <iframe class="embed-responsive-item" src="{{ concert.concert_image.url }}" alt="{{ concert.concert_name }}" allowfullscreen></iframe>
+                <div class="embed-responsive rounded-top">
+                  <img src="{{ concert.concert_image.url }}" alt="{{ concert.concert_name }}" width="100%"></iframe>
                 </div>
               {% else %}
-                <div class="embed-responsive embed-responsive-16by9 rounded-top">
-                  <iframe class="embed-responsive-item" src="{{ MEDIA_URL }}no_image.jpg" alt="{{ concert.concert_name }}" allowfullscreen></iframe>
+                <div class="embed-responsive rounded-top">
+                  <img src="{{ MEDIA_URL }}no_image.jpg" alt="{{ concert.concert_name }}" width="100%"></iframe>
                 </div>
               {% endif %}
               </div>
@@ -44,11 +44,11 @@
                 <!--Text-->
                 <p class="card-text">{{ concert.concert_date }}</p>
 				  <a href="" target="_blank"
-                  class="btn btn-primary btn-md">MORE
+                  class="btn btn-primary btn-md uppercase-font">more
                   <i class="fas fa-play ml-2"></i>
                 </a>
 				  <a href="" target="_blank"
-                  class="btn btn-warning btn-md">BOOK NOW
+                  class="btn btn-warning btn-md uppercase-font">buy tickets
                   <i class="fas fa-play ml-2"></i>
                 </a>
 
