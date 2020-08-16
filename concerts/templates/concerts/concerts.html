@@ -29,11 +29,15 @@
                 <div class="view overlay">
                 {% if concert.concert_image %}
                 <div class="embed-responsive rounded-top">
+                    <a href="{% url 'concert_detail' concert.id %}">
                     <img src="{{ concert.concert_image.url }}" alt="{{ concert.concert_name }}" width="100%">
+                    </a>
                 </div>
                 {% else %}
                 <div class="embed-responsive rounded-top">
+                    <a href="{% url 'concert_detail' concert.id %}">
                     <img src="{{ MEDIA_URL }}no_image.jpg" alt="{{ concert.concert_name }}" width="100%">
+                    </a>
                 </div>
                 {% endif %}
                 </div>
@@ -44,7 +48,7 @@
                 <h4 class="card-title">{{ concert.friendly_name }}</h4>
                 <!--Text-->
                 <p class="card-text">{{ concert.concert_date }}</p>
-                    <a href="" target="_blank"
+                    <a href="{% url 'concert_detail' concert.id %}"
                     class="btn btn-primary btn-md uppercase-font">more
                     <i class="fas fa-play ml-2"></i>
                 </a>

@@ -16,7 +16,7 @@ def all_concerts(request):
 
 
 def concert_detail(request, concert_id):
-    """ the view to return the detail page concert.html """
+    """ the view to return the detail page concert_detail.html """
 
     concert = get_object_or_404(Concert, pk=concert_id)
 
@@ -24,4 +24,4 @@ def concert_detail(request, concert_id):
         'concert': concert,
     }
     
-    return render(request, 'concerts/concert.html', context)
+    return render(request, 'concerts/concert_detail.html', context)

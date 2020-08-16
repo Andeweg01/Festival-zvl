@@ -4,7 +4,7 @@ html {
 
 body {
     margin: 0;
-    background: url('/media/Oester_back.jpg') no-repeat right center fixed;
+    background: url('/media/Oester_back.jpg') no-repeat right bottom fixed;
     height: calc(100vh - 140px);
     color: #00396D;
     font-family: 'Raleway', sans-serif;

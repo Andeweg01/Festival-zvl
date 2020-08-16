@@ -51,7 +51,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Program
+                        <a class="nav-link" href="{% url 'concerts' %}">Program
                         <span class="sr-only">(current)</span>
                         </a>
                     </li>
@@ -169,6 +169,11 @@
     function topFunction() {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    }
+    </script>
+    <script type="text/javascript">
+    function goBack() {
+    window.history.back();
     }
     </script>
     {% endblock %}
