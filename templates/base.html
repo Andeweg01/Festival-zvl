@@ -55,6 +55,19 @@
                         <span class="sr-only">(current)</span>
                         </a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="locations" data-toggle="dropdown" 
+                            aria-haspopup="true" aria-expanded="false">Locations</a>
+                        <div class="dropdown-menu dropdown-default" aria-labelledby="previous-editions">
+                        <a class="dropdown-item" href="{% url 'concerts' %}?location=Scheldetheater">Scheldetheater Terneuzen</a>
+                        <a class="dropdown-item" href="{% url 'concerts' %}?location=Basiliek">Sint-Willibrordusbasiliek Hulst</a>
+                        <a class="dropdown-item" href="{% url 'concerts' %}?location=Mauritshof">Mauritshof IJzendijke</a>
+                        <a class="dropdown-item" href="{% url 'concerts' %}?location=Halle">De Halle Axel</a>
+                        <a class="dropdown-item" href="{% url 'concerts' %}?location=GroteKerk">Grote Kerk Groede</a>
+                        <a class="dropdown-item" href="{% url 'concerts' %}?location=Industrieel">Industrieel Museum Zeeland</a>
+                        <a class="dropdown-item" href="{% url 'concerts' %}?location=Hof">Hof te Zande Kerk Kloosterzande</a>
+                        </div>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Tickets</a>
                     </li>
@@ -62,9 +75,11 @@
                         <a class="nav-link dropdown-toggle" id="previous-editions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Previous
                         </a>
                         <div class="dropdown-menu dropdown-default" aria-labelledby="previous-editions">
-                        <a class="dropdown-item" href="#">2019</a>
-                        <a class="dropdown-item" href="#">2018</a>
-                        <a class="dropdown-item" href="#">2017</a>
+                        <a class="dropdown-item" href="{% url 'concerts' %}?edition=2019">2019</a>
+                        <a class="dropdown-item" href="{% url 'concerts' %}?edition=2018">2018</a>
+                        <a class="dropdown-item" href="{% url 'concerts' %}?edition=2017">2017</a>
+                        <a class="dropdown-item" href="{% url 'concerts' %}?edition=2016">2016</a>
+                        <a class="dropdown-item" href="{% url 'concerts' %}?edition=2015">2015</a>
                         </div>
                     </li>
                     <li class="nav-item">
