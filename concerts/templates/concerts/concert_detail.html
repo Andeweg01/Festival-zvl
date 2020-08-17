@@ -46,14 +46,14 @@
                 <hr class="my-4">
                 <p class="card-text mb-5">{{ concert.concert_description}}</p>
             <div class="clearfix">
-                <h5 class="card-text float-left"><strong>Location:</strong> {{ concert.location }}</h5>
+                <h5 class="card-text float-left"><strong>Location:</strong> {{ concert.location.friendly_name }}</h5>
                 <h5 class="card-text float-right"><strong>Price:</strong> {{ concert.concert_price }}</h5>
             </div>
             <div class="clearfix">
                 <h5 class="card-text float-right"><strong>Available tickets:</strong> {{ concert.concert_availability }}</h5>
             </div>
                 <p>
-                <a href=""
+                <a href="javascript:history.go(-1)"
                     class="btn btn-primary btn-md uppercase-font">back
                     <i class="fas fa-play ml-2"></i>
                 </a>
@@ -69,7 +69,8 @@
           <!-- Back to Top button -->
     <div class="my-5 text-center">
         <button class="btn btn-outline-blue btn-lg" onclick="topFunction()" id="myBtn" title="Go to top">Back to Top
-        <i class="far fa-arrow-alt-circle-up ml-2"></i></button><br><br>
+        <i class="far fa-arrow-alt-circle-up ml-2"></i></button>
+        <br><p class="text-white">.</p><br>
     </div>
           <!-- Back to Top button -->
 </div>
