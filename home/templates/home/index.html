@@ -2,26 +2,161 @@
 {% load static %}
 
 {% block content %}
-<div class="my-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-8 text-center mt-5">
-                <h1 class="pearl-text mb-4 mt-5">
-                    <strong>Boundless Classical Pearls</strong>
-                </h1>
-                <h4>18 September - 16 October 2020</h4>
-                <br>
-                <p class="mb-4">Festival van Zeeuwsch-Vlaanderen creates concert halls behind the dikes every year. Special, often surprising locations in this noteworthy, different area, 
-                    situated in the periphery of the art cities and concert halls in Flanders. The chosen theme for edition 32 is:</p>
-                <h5 class="pearl-text">Boundless Classical Pearls</h5>
-                <p>With it's setting in rural peace and mixed culture the Festival van Zeeuwsch-Vlaanderen proudly settled itself among the well known classical music events in Western Europe and has a 
-                    great reputation within The Netherlands and abroad. It's a fixed value for Zealand's cultural agenda.
-                    Every year you're sure to experience great symphony orchestras, chamber music ensembles, soloist who are often winners of national and international musical competitions.</p>
-                <h5 class="pearl-text text-warning">Come and discover how contemporary classical music actually is. You're most welcome!</h5>
-                <a href="{% url 'concerts' %}" class="btn btn-outline-blue btn-lg">Enjoy
-                    <i class="fas fa-music ml-2"></i>
-                </a>
+<div class="container-fluid my-5">
+
+  <!-- MDBootstrap caroussel -->
+  <!--Section: Content-->
+  <section class="text-center dark-grey-text">
+    
+    <style>
+      .carousel-multi-item.v-2 .carousel-inner .carousel-item.active,
+      .carousel-multi-item.v-2 .carousel-item-next,
+      .carousel-multi-item.v-2 .carousel-item-prev {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex; }
+      .carousel-multi-item.v-2 .carousel-item-right.active,
+      .carousel-multi-item.v-2 .carousel-item-next {
+        -webkit-transform: translateX(50%);
+        -ms-transform: translateX(50%);
+        transform: translateX(50%); }
+      .carousel-multi-item.v-2 .carousel-item-left.active,
+      .carousel-multi-item.v-2 .carousel-item-prev {
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%); }
+      .carousel-multi-item.v-2 .carousel-item-right,
+      .carousel-multi-item.v-2 .carousel-item-left {
+        -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+        transform: translateX(0); }
+    </style>
+    
+    <div class="row">
+      <div class="col-md-12 mt-5">
+
+        <div id="carousel-example-multi" class="carousel slide carousel-multi-item v-2 mt-5" data-ride="carousel">
+
+          <div class="carousel-inner" role="listbox">
+
+            <div class="carousel-item active">
+              <div class="col-12 col-md-6 mb-4 mx-auto">
+                <div class="view rounded z-depth-1-half">
+                  <img src="/media/00_fzv2020.jpg" class="img-fluid rounded" alt="Festival image 0">
+                </div>
+              </div>
             </div>
+            <div class="carousel-item">
+              <div class="col-12 col-md-6 mb-4 mx-auto">
+                <div class="view rounded z-depth-1-half">
+                  <img src="/media/01_fzv2020.jpg" class="img-fluid rounded" alt="Festival image 1">
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="col-12 col-md-6 mb-4 mx-auto">
+                <div class="view rounded z-depth-1-half">
+                  <img src="/media/02_fzv2020.jpg" class="img-fluid rounded" alt="Festival image 2">
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="col-12 col-md-6 mx-auto">
+                <div class="view rounded z-depth-1-half">
+                  <img src="/media/03_fzv2020.jpg" class="img-fluid rounded" alt="Festival image 3">
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="col-12 col-md-6 mb-4 mx-auto">
+                <div class="view rounded z-depth-1-half">
+                  <img src="/media/04_fzv2020.jpg" class="img-fluid rounded" alt="Festival image 4">
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="col-12 col-md-6 mb-4 mx-auto">
+                <div class="view rounded z-depth-1-half">
+                  <img src="/media/05_fzv2020.jpg" class="img-fluid rounded" alt="Festival image 5">
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item active">
+              <div class="col-12 col-md-6 mb-4 mx-auto">
+                <div class="view rounded z-depth-1-half">
+                  <img src="/media/06_fzv2020.jpg" class="img-fluid rounded" alt="Festival image 6">
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="col-12 col-md-6 mb-4 mx-auto">
+                <div class="view rounded z-depth-1-half">
+                  <img src="/media/07_fzv2020.jpg" class="img-fluid rounded" alt="Festival image 7">
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="col-12 col-md-6 mb-4 mx-auto">
+                <div class="view rounded z-depth-1-half">
+                  <img src="/media/08_fzv2020.jpg" class="img-fluid rounded" alt="Festival image 8">
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="col-12 col-md-6 mx-auto">
+                <div class="view rounded z-depth-1-half">
+                  <img src="/media/09_fzv2020.jpg" class="img-fluid rounded" alt="Festival image 9">
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="col-12 col-md-6 mb-4 mx-auto">
+                <div class="view rounded z-depth-1-half">
+                  <img src="/media/10_fzv2020.jpg" class="img-fluid rounded" alt="Festival image 10">
+                </div>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <div class="col-12 col-md-6 mb-4 mx-auto">
+                <div class="view rounded z-depth-1-half">
+                  <img src="/media/05_fzv2020.jpg" class="img-fluid rounded" alt="Festival image 5">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <!--Controls-->
+          <div class="controls-top">
+            <a class="btn-floating bg-transparent z-depth-0 m-0" href="#carousel-example-multi" data-slide="prev"><i class="dark-grey-text fas fa-chevron-left"></i></a>
+            <a class="btn-floating bg-transparent z-depth-0 m-0" href="#carousel-example-multi" data-slide="next"><i class="dark-grey-text fas fa-chevron-right"></i></a>
+          </div>
+          <!--/.Controls-->
+
+      </div>
+    </div>
+  </section>
+  <!--Section: Content-->
+</div>
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-8 text-center mb-5">
+            <h1 class="pearl-text mb-4 text-warning">
+                <strong>Boundless Classical Pearls</strong>
+            </h1>
+            <h4>18 September - 16 October 2020</h4>
+            <br>
+            <p class="mb-4">Festival van Zeeuwsch-Vlaanderen creates concert halls behind the dikes every year. Special, often surprising locations in this noteworthy, different area, 
+                situated in the periphery of the art cities and concert halls in Flanders. The chosen theme for edition 32 is:</p>
+            <h5 class="pearl-text">Boundless Classical Pearls</h5>
+            <p>With it's setting in rural peace and mixed culture the Festival van Zeeuwsch-Vlaanderen proudly settled itself among the well known classical music events in Western Europe and has a 
+                great reputation within The Netherlands and abroad. It's a fixed value for Zealand's cultural agenda.
+                Every year you're sure to experience great symphony orchestras, chamber music ensembles, soloist who are often winners of national and international musical competitions.</p>
+            <h5 class="pearl-text text-warning">Come and discover how contemporary classical music actually is. You're most welcome!</h5>
+            <a href="{% url 'concerts' %}" class="btn btn-outline-blue btn-lg mb-5">Enjoy
+                <i class="fas fa-music ml-2"></i>
+            </a>
         </div>
     </div>
 </div>
