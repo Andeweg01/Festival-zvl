@@ -163,9 +163,30 @@
     </footer>
 
     {% block postloadjs %}
+
     <script type="text/javascript">
         $('.toast').toast('show');
     </script>
+
+    <script type="text/javascript">
+        // MDBootstrap caroussel by Marta Szymanska:
+        $('.carousel.carousel-multi-item.v-2 .carousel-item').each(function () {
+        var next = $(this).next();
+        if (!next.length) {
+            next = $(this).siblings(':first');
+        }
+        next.children(':first-child').clone().appendTo($(this));
+
+        for (var i = 0; i < 2; i++) {
+            next = next.next();
+            if (!next.length) {
+                next = $(this).siblings(':first');
+            }
+            next.children(':first-child').clone().appendTo($(this));
+        }
+        });
+    </script>
+
     <script type="text/javascript">
         //Back to top from w3schools.com:
         mybutton = document.getElementById("myBtn");
@@ -186,30 +207,14 @@
         document.body.scrollTop = 0; // For Safari
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
         }
-        </script>
-        <script type="text/javascript">
+    </script>
+
+    <script type="text/javascript">
         function goBack() {
         window.history.back();
         }
     </script>
-    <script type="text/javascript">
-        // MDBootstrap caroussel by Marta Szymanska:
-        $('.carousel.carousel-multi-item.v-2 .carousel-item').each(function () {
-        var next = $(this).next();
-        if (!next.length) {
-            next = $(this).siblings(':first');
-        }
-        next.children(':first-child').clone().appendTo($(this));
 
-        for (var i = 0; i < 10; i++) {
-            next = next.next();
-            if (!next.length) {
-            next = $(this).siblings(':first');
-            }
-            next.children(':first-child').clone().appendTo($(this));
-        }
-        });
-    </script>
     {% endblock %}
 
   </body>
