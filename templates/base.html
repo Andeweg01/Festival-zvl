@@ -110,7 +110,7 @@
                     </li>
                     <li class="nav-item mt-2">
                         <p class="my-0">
-                        <a class="{% if grand_total %}text-info{% else %}text-grey{% endif %}nav-link" href="#">
+                        <a class="{% if grand_total %}text-info{% else %}text-grey{% endif %}nav-link" href="{% url 'view_cart' %}">
                             <i class="fas fa-shopping-cart"></i>
                             {% if grand_total %}
                                 &euro; {{ grand_total|floatformat:2 }}
