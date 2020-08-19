@@ -59,7 +59,8 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="locations" data-toggle="dropdown" 
                                 aria-haspopup="true" aria-expanded="false">Locations</a>
-                            <div class="dropdown-menu dropdown-default" aria-labelledby="previous-editions">
+                            <div class="dropdown-menu dropdown-default" aria-labelledby="locations">
+                            <a class="dropdown-item" href="{% url 'concerts' %}">All locations</a>
                             <a class="dropdown-item" href="{% url 'concerts' %}?location=Scheldetheater">Scheldetheater Terneuzen</a>
                             <a class="dropdown-item" href="{% url 'concerts' %}?location=Basiliek">Sint-Willibrordusbasiliek Hulst</a>
                             <a class="dropdown-item" href="{% url 'concerts' %}?location=Mauritshof">Mauritshof IJzendijke</a>
