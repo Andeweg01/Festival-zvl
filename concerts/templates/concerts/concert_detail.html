@@ -2,8 +2,7 @@
 {% load static %}
 
 {% block page_header %}
-<div class="mt-5 pt-5">
-    <div class="container-fluid"></div>
+<div class="container">
 </div>
 {% endblock %}
 
@@ -25,53 +24,55 @@
 <!-- concert image -->
 
 <!-- concert details -->
-<div class="my-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-8 text-center">
-                <h1 class="card-title">{{ concert.friendly_name }}</h1>
-                <h2 class="card_text pearl-text my-3">{{ concert.concert_subtitle }}</h2>
-                <h2 class="card_text pearl-text my-3">{{ concert.concert_theme }}</h2>
-                <h3 class="card-text">{{ concert.concert_date }}</h3>
-                <hr class="my-4">
-            {% if concert.concert_conductor %}
-                <h4 class="card-text"><strong>Conductor:</strong> {{ concert.concert_conductor }}</h4>
-            {% else %}
-            {% endif %}
-            {% if concert.concert_soloist %}
-                <h5 class="card-text"><strong>Soloist:</strong> {{ concert.concert_soloist }}</h5>
-            {% else %}
-            {% endif %}
-                <h5 class="card-text"><strong>Program:</strong> {{ concert.concert_program }}</h5>
-                <hr class="my-4">
-                <p class="card-text mb-5">{{ concert.concert_description}}</p>
-            <div class="clearfix">
-                <h5 class="card-text float-left"><strong>Location:</strong> {{ concert.location.friendly_name }}</h5>
-                <h5 class="card-text float-right"><strong>Price:</strong> {{ concert.concert_price }}</h5>
-            </div>
-            <div class="clearfix">
-                <h5 class="card-text float-right"><strong>Available tickets:</strong> {{ concert.concert_availability }}</h5>
-            </div>
-                <p>
-                <a href="javascript:history.go(-1)"
-                    class="btn btn-primary btn-md uppercase-font">back
-                    <i class="fas fa-play ml-2"></i>
-                </a>
-                <a href=""
-                    class="btn btn-warning btn-md uppercase-font">buy tickets
-                    <i class="fas fa-play ml-2"></i>
-                </a>
-                </p>
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="col-8 text-center my-3">
+            <h1 class="card-title">{{ concert.friendly_name }}</h1>
+            <h2 class="card_text pearl-text my-3">{{ concert.concert_subtitle }}</h2>
+            <h2 class="card_text pearl-text my-3">{{ concert.concert_theme }}</h2>
+            <h3 class="card-text">{{ concert.concert_date }}</h3>
+            <hr class="my-4">
+        {% if concert.concert_conductor %}
+            <h4 class="card-text"><strong>Conductor:</strong> {{ concert.concert_conductor }}</h4>
+        {% else %}
+        {% endif %}
+        {% if concert.concert_soloist %}
+            <h5 class="card-text"><strong>Soloist:</strong> {{ concert.concert_soloist }}</h5>
+        {% else %}
+        {% endif %}
+            <h5 class="card-text"><strong>Program:</strong> {{ concert.concert_program }}</h5>
+            <hr class="my-4">
+            <p class="card-text mb-5">{{ concert.concert_description}}</p>
+        <div class="clearfix">
+            <h5 class="card-text float-left"><strong>Location:</strong> {{ concert.location.friendly_name }}</h5>
+            <h5 class="card-text float-right"><strong>Price:</strong> {{ concert.concert_price }}</h5>
+        </div>
+        <div class="clearfix">
+            <h5 class="card-text float-right"><strong>Available tickets:</strong> {{ concert.concert_availability }}</h5>
+        </div>
+        <hr class="my-3">
+        <div class="row d-flex justify-content-center">
+            <form class="form" action="#" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-12">
+                    Quantity: <input class="form-control form-qty btn-block" type="number" name="quantity" 
+                    value="1" min="1" max="99" data-item_id="{{ concert.id }}" id="id_qty_{{ concert.id }}">
+                    <input type="submit" class="btn btn-warning btn-md uppercase-font" value="buy tickets">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <a href="javascript:history.go(-1)" class="btn btn-primary btn-md uppercase-font">
+            <i class="fas fa-backward mr-2"></i>back to program</a>
         </div>
     </div>
-
-          <!-- Back to Top button -->
-    <div class="my-5 text-center">
-        <button class="btn btn-outline-blue btn-lg" onclick="topFunction()" id="myBtn" title="Go to top">Back to Top
-        <i class="far fa-arrow-alt-circle-up ml-2"></i></button>
-        <br><p class="text-white">.</p><br>
-    </div>
-          <!-- Back to Top button -->
 </div>
+
+        <!-- Back to Top button -->
+<div class="mb-5">
+    <button class="btn btn-outline-blue btn-md rounded-top" onclick="topFunction()" id="myBtn" title="To top">To Top
+    <i class="far fa-arrow-alt-circle-up ml-2"></i></button>
+</div>
+        <!-- Back to Top button -->
 {% endblock %}

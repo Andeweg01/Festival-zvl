@@ -2,7 +2,7 @@
 
 <!doctype html>
 <html lang="en">
-  <head>
+    <head>
 
     {% block meta %}
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -37,100 +37,101 @@
     {% block extra_js %}
     {% endblock %}
 
-    <title>Festival van Zeeuwsch-Vlaanderen {% block extra_title %}{% endblock %}</title>
-  </head>
-  <body>
-    <header class="container-fluid fixed-top">
-        <!--Navbar -->
-        <nav class="mb-1 navbar navbar-expand-lg navbar-light white">
-        <a class="navbar-brand fzv-logo" href="{% url 'home' %}"><img class="fzv-logo" src="/media/FestivalZVL_logo.png" alt="Festival van Zeeuwsch-Vlaanderen logo"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
-            aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'concerts' %}">Program
-                        <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="locations" data-toggle="dropdown" 
-                            aria-haspopup="true" aria-expanded="false">Locations</a>
-                        <div class="dropdown-menu dropdown-default" aria-labelledby="previous-editions">
-                        <a class="dropdown-item" href="{% url 'concerts' %}?location=Scheldetheater">Scheldetheater Terneuzen</a>
-                        <a class="dropdown-item" href="{% url 'concerts' %}?location=Basiliek">Sint-Willibrordusbasiliek Hulst</a>
-                        <a class="dropdown-item" href="{% url 'concerts' %}?location=Mauritshof">Mauritshof IJzendijke</a>
-                        <a class="dropdown-item" href="{% url 'concerts' %}?location=Halle">De Halle Axel</a>
-                        <a class="dropdown-item" href="{% url 'concerts' %}?location=GroteKerk">Grote Kerk Groede</a>
-                        <a class="dropdown-item" href="{% url 'concerts' %}?location=Industrieel">Industrieel Museum Zeeland</a>
-                        <a class="dropdown-item" href="{% url 'concerts' %}?location=Hof">Hof te Zande Kerk Kloosterzande</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Tickets</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="previous-editions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Previous
-                        </a>
-                        <div class="dropdown-menu dropdown-default" aria-labelledby="previous-editions">
-                        <a class="dropdown-item" href="{% url 'concerts' %}">All editions</a>
-                        <a class="dropdown-item" href="{% url 'concerts' %}?edition=2019">2019</a>
-                        <a class="dropdown-item" href="{% url 'concerts' %}?edition=2018">2018</a>
-                        <a class="dropdown-item" href="{% url 'concerts' %}?edition=2017">2017</a>
-                        <a class="dropdown-item" href="{% url 'concerts' %}?edition=2016">2016</a>
-                        <a class="dropdown-item" href="{% url 'concerts' %}?edition=2015">2015</a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Sponsoring</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Media</a>
-                    </li>
-                </ul>
-                <ul class="navbar-nav ml-auto nav-flex-icons">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-user"></i>
-                        </a>
-                        <div class="dropdown-menu dropdown-default" aria-labelledby="user-options">
-                                {% if request.user.is_authenticated %}
-                                    {% if request.user.is_superuser %}
-                                        <a href="#" class="dropdown-item">Management</a>
-                                    {% endif %}
-                                        <a href="#" class="dropdown-item">User Profile</a>
-                                        <a href="{% url 'account_logout' %}" class="dropdown-item">Log Out</a>
-                                    {% else %}
-                                        <a href="{% url 'account_signup' %}" class="dropdown-item">Create Account</a>
-                                        <a href="{% url 'account_login' %}" class="dropdown-item">Log In</a>
-                                    {% endif %}
-                        </div>
-                    </li>
-                    <li class="nav-item mt-2">
-                        <p class="my-0">
-                        <a class="{% if grand_total %}text-info{% else %}text-grey{% endif %}nav-link" href="{% url 'view_cart' %}">
-                            <i class="fas fa-shopping-cart"></i>
-                            {% if grand_total %}
-                                &euro; {{ grand_total|floatformat:2 }}
-                            {% else %}
-                                &euro; 0,00
-                            {% endif %}
-                        </a>
-                        </p>
-                    </li>
-                </ul>
+        <title>Festival van Zeeuwsch-Vlaanderen {% block extra_title %}{% endblock %}</title>
+    </head>
+
+    <body>
+        <header class="container-fluid fixed-top">
+            <!--Navbar -->
+            <nav class="mb-1 navbar navbar-expand-lg navbar-light white">
+            <a class="navbar-brand fzv-logo" href="{% url 'home' %}"><img class="fzv-logo" src="/media/FestivalZVL_logo.png" alt="Festival van Zeeuwsch-Vlaanderen logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+                aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'concerts' %}">Program
+                            <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="locations" data-toggle="dropdown" 
+                                aria-haspopup="true" aria-expanded="false">Locations</a>
+                            <div class="dropdown-menu dropdown-default" aria-labelledby="previous-editions">
+                            <a class="dropdown-item" href="{% url 'concerts' %}?location=Scheldetheater">Scheldetheater Terneuzen</a>
+                            <a class="dropdown-item" href="{% url 'concerts' %}?location=Basiliek">Sint-Willibrordusbasiliek Hulst</a>
+                            <a class="dropdown-item" href="{% url 'concerts' %}?location=Mauritshof">Mauritshof IJzendijke</a>
+                            <a class="dropdown-item" href="{% url 'concerts' %}?location=Halle">De Halle Axel</a>
+                            <a class="dropdown-item" href="{% url 'concerts' %}?location=GroteKerk">Grote Kerk Groede</a>
+                            <a class="dropdown-item" href="{% url 'concerts' %}?location=Industrieel">Industrieel Museum Zeeland</a>
+                            <a class="dropdown-item" href="{% url 'concerts' %}?location=Hof">Hof te Zande Kerk Kloosterzande</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Tickets</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="previous-editions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Previous
+                            </a>
+                            <div class="dropdown-menu dropdown-default" aria-labelledby="previous-editions">
+                            <a class="dropdown-item" href="{% url 'concerts' %}">All editions</a>
+                            <a class="dropdown-item" href="{% url 'concerts' %}?edition=2019">2019</a>
+                            <a class="dropdown-item" href="{% url 'concerts' %}?edition=2018">2018</a>
+                            <a class="dropdown-item" href="{% url 'concerts' %}?edition=2017">2017</a>
+                            <a class="dropdown-item" href="{% url 'concerts' %}?edition=2016">2016</a>
+                            <a class="dropdown-item" href="{% url 'concerts' %}?edition=2015">2015</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Sponsoring</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Media</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ml-auto nav-flex-icons">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-user"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-default" aria-labelledby="user-options">
+                                    {% if request.user.is_authenticated %}
+                                        {% if request.user.is_superuser %}
+                                            <a href="#" class="dropdown-item">Management</a>
+                                        {% endif %}
+                                            <a href="#" class="dropdown-item">User Profile</a>
+                                            <a href="{% url 'account_logout' %}" class="dropdown-item">Log Out</a>
+                                        {% else %}
+                                            <a href="{% url 'account_signup' %}" class="dropdown-item">Create Account</a>
+                                            <a href="{% url 'account_login' %}" class="dropdown-item">Log In</a>
+                                        {% endif %}
+                            </div>
+                        </li>
+                        <li class="nav-item mt-2">
+                            <p class="my-0">
+                            <a class="{% if grand_total %}text-info{% else %}text-grey{% endif %}nav-link" href="{% url 'view_cart' %}">
+                                <i class="fas fa-shopping-cart"></i>
+                                {% if grand_total %}
+                                    &euro; {{ grand_total|floatformat:2 }}
+                                {% else %}
+                                    &euro; 0,00
+                                {% endif %}
+                            </a>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!--/.Navbar -->
+            <div class="row text-center mt-n2">
+                <div class="col bg-blue text-white">
+                    <p class="my-1">Edition 32: 18/09 - 16/10 2020 &nbsp;&nbsp;&nbsp;&nbsp;<span class="pearl-text">
+                        Boundless Classical Pearls</span></p>
+                </div>
             </div>
-        </nav>
-        <!--/.Navbar -->
-    <div class="row text-center mt-n2">
-        <div class="col bg-blue text-white">
-            <p class="my-1">Edition 32: 18/09 - 16/10 2020 &nbsp;&nbsp;&nbsp;&nbsp;<strong><span class="pearl-text">
-                Boundless Classical Pearls</span></strong></p>
-        </div>
-    </div>
-    </header>
+        </header>
 
     {% if messages %}
         <div class="message-container"></div>
@@ -143,10 +144,10 @@
     {% endblock %}
 
         <!--Footer-->
-    <footer class="page-footer text-center font-small bg-blue darken-2 fixed-bottom">
+    <footer class="container-fluid page-footer text-center font-small bg-blue darken-2 fixed-bottom">
 
         <!-- Social icon -->
-        <div class="py-3">
+        <div class="py-2">
         <p class="font-small"><a href="https://www.facebook.com/Festival-van-Zeeuwsch-Vlaanderen-110397946983239" target="_blank">
             <i class="fab fa-facebook-f mr-3"></i>
         </a> Stichting Festival van Zeeuwsch-Vlaanderen | Bellamystraat 26A | 4532 CP Terneuzen | Telefoon  +31 (0) 115 64 97 51 | KvK nr. 22048030</p>
@@ -154,7 +155,7 @@
         <!-- Social icons -->
 
         <!--Copyright-->
-        <div class="footer-copyright py-3">
+        <div class="footer-copyright py-2">
         © 2020 Copyright:
         <a href="http://designed.irish" target="_blank"> Designed.Irish </a>
         </div>
