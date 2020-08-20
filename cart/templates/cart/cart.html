@@ -10,17 +10,17 @@
     </div>
     <div class="row">
         <div class="col-10">
-            <div class="container z-depth-1 p-5">
+            <div class="container z-depth-1 rounded">
 
             <!-- Shopping bag content from MDBootstrap tweaked for FZV -->
             <!-- Section: Block Content -->
             <section>
             {% if cart_items %}
                     <!-- Shopping Cart table -->
-                <div class="table-responsive">
-                <table class="table product-table table-cart-v-1">
+            <div class="table-responsive">
+                <table class="table product-table mb-0 p-5">
                     <!-- Table head -->
-                    <thead>
+                    <thead mdb-color lighten-5>
                     <tr>
                         <th></th>
                         <th class="font-weight-bold">
@@ -45,44 +45,48 @@
                     {% for item in cart_items %}
                     <tr>
                         <th scope="row">
-                        <img src="/media/{{ item.concert.concert_image }}" alt="{{ item.concert.friendly_name }}"
-                            class="img-fluid z-depth-0">
+                            <img src="/media/{{ item.concert.concert_image }}" alt="{{ item.concert.friendly_name }}"
+                                class="img-fluid z-depth-0">
                         </th>
                         <td>
-                        <h5 class="mt-3">
-                            <strong>{{ item.concert.friendly_name }}</strong>
-                        </h5>
-                        <p class="text-muted">{{ item.concert.concert_date }}</p>
+                            <h5 class="my-2">
+                                <strong>{{ item.concert.friendly_name }}</strong>
+                            </h5>
+                            <p class="text-muted">{{ item.concert.concert_date }}</p>
                         </td>
                         <td></td>
-                        <td>&euro; {{ item.concert.concert_price }}</td>
-                        <td class="text-center text-md-left">
-                        <span class="qty">{{ item.quantity }}</span>
-                        <div class="btn-group radio-group ml-2" data-toggle="buttons">
-                            <label class="btn btn-sm btn-primary btn-rounded">
-                            <input type="radio" name="options" id="option1">&mdash;
-                            </label>
-                            <label class="btn btn-sm btn-primary btn-rounded">
-                            <input type="radio" name="options" id="option2">+
-                            </label>
-                        </div>
-                        </td>
-                        <td class="font-weight-bold">
-                        <strong>&euro; {{ total|floatformat:2 }}</strong>
+                        <td>
+                            <p class="mt-2">&euro;{{ item.concert.concert_price }}</p>
                         </td>
                         <td>
-                        <a class="btn-floating btn-lg" data-toggle="tooltip" data-placement="top"
-                            title="Remove item"><i class="fas fa-times-circle text-danger"></i></a>
+                            <form class="form update-form text-center" method="POST" action="">
+                            {% csrf_token %}
+                            <input class="form-control form-qty" type="number" name="quantity" 
+                                value="{{ item.item_id }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                            </form>
+                            <i class="fas fa-sync-alt"></i>
+                        </td>
+                        <td>
+                            <p class="mt-2">&euro;{{ total|floatformat:2 }}</p>
+                        </td>
+                        <td>
+                            <a class="btn-floating btn-lg" data-toggle="tooltip" data-placement="top"
+                                title="Remove item"><i class="fas fa-times-circle text-danger"></i></a>
                         </td>
                     </tr>
                     {% endfor %}
                     </tbody>
                     <!-- Table body -->
                 </table>
+                <div class="clearfix">
                     <div class="font-weight-bold float-right">
-                Grand Total: <strong>&euro; {{ grand_total|floatformat:2 }}</strong>
+                        Grand Total: <strong>&euro;{{ grand_total|floatformat:2 }}</strong>
+                        <button type="button" class="btn btn-primary btn-rounded text-right">Complete purchase
+                            <i class="fas fa-angle-right right"></i>
+                        </button>
                     </div>
                 </div>
+            </div>
                 <!-- Shopping Cart table -->
             {% else %}
                 <h5>Your shopping cart is empty</h5>

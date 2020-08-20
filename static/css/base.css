@@ -54,6 +54,7 @@ body {
 
 .form-qty {
     max-width: 60px;
+    min-width: 60px;
 }
 
 .btn-block {
