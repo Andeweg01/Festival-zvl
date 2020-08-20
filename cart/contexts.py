@@ -21,6 +21,7 @@ def cart_contents(request):
             'item_id': item_id,
             'quantity': quantity,
             'concert': concert,
+            'sub_total': sub_total,
         })
 
     grand_total = total
