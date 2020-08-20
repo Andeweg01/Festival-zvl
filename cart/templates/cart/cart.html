@@ -10,7 +10,7 @@
     </div>
     <div class="row">
         <div class="col-10">
-            <div class="container z-depth-1 rounded">
+            <div class="container z-depth-1 my-3 rounded">
 
             <!-- Shopping bag content from MDBootstrap tweaked for FZV -->
             <!-- Section: Block Content -->
@@ -18,7 +18,7 @@
             {% if cart_items %}
                     <!-- Shopping Cart table -->
             <div class="table-responsive">
-                <table class="table product-table mb-0 p-5">
+                <table class="table product-table mb-3 p-5">
                     <!-- Table head -->
                     <thead mdb-color lighten-5>
                     <tr>
@@ -63,14 +63,14 @@
                             {% csrf_token %}
                             <input class="form-control form-qty" type="number" name="quantity" 
                                 value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                            <a href=""><i class="fas fa-sync-alt text-primary"></i></a>
                             </form>
-                            <i class="fas fa-sync-alt"></i>
                         </td>
                         <td>
                             <p class="mt-2">&euro;{{ item.sub_total|floatformat:2 }}</p>
                         </td>
                         <td>
-                            <a class="btn-floating btn-lg" data-toggle="tooltip" data-placement="top"
+                            <a href="" id="remove_{{ item.item_id }}" class="btn-floating btn-lg" data-toggle="tooltip" data-placement="top"
                                 title="Remove item"><i class="fas fa-times-circle text-danger"></i></a>
                         </td>
                     </tr>
@@ -103,3 +103,4 @@
     </div>
 </div>
 {% endblock %}
+
