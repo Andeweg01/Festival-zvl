@@ -63,7 +63,7 @@
                             {% csrf_token %}
                             <input class="form-control form-qty" type="number" name="quantity" 
                                 value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
-                            <a href=""><i class="fas fa-sync-alt text-primary"></i></a>
+                            <a class="update-link"><i class="fas fa-sync-alt text-primary"></i></a>
                             </form>
                         </td>
                         <td>
@@ -104,3 +104,27 @@
 </div>
 {% endblock %}
 
+{% block postloadjs %}
+
+<script type="text/javascript">
+    // quantity update function
+    $('.update-link').click(function(e) {
+        var form = $(this).prev('.update-form');
+        form.submit();
+    })
+
+    // remove concert from bag and update
+    $('.remove-item').click(function(e) {
+        var csrfToken = "{{ csrf_token }}"
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var url = '/cart/remove/$(itemId)';
+        var data = {'csrfmiddlewaretoken': csrfToken};
+
+        $.post(url, data)
+            .done(function() {
+                location.reload();
+            });
+    })
+</script>
+
+{% endblock %}
