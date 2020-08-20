@@ -62,7 +62,7 @@
                             <form class="form update-form text-center" method="POST" action="">
                             {% csrf_token %}
                             <input class="form-control form-qty" type="number" name="quantity" 
-                                value="{{ item.item_id }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
                             </form>
                             <i class="fas fa-sync-alt"></i>
                         </td>
