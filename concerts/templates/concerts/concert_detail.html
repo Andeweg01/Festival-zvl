@@ -27,9 +27,9 @@
 <div class="container">
     <div class="row">
         <div class="col-8 text-center my-3">
-            <h1 class="card-title">{{ concert.friendly_name }}</h1>
-            <h2 class="card_text pearl-text my-3">{{ concert.concert_subtitle }}</h2>
-            <h2 class="card_text my-3">{{ concert.concert_theme }}</h2>
+            <h1 class="card-title"><strong>{{ concert.friendly_name }}</strong></h1>
+            <h2 class="card_text my-3">{{ concert.concert_subtitle }}</h2>
+            <h2 class="card_text pearl-text my-3">{{ concert.concert_theme }}</h2>
             <h4 class="card-text">{{ concert.concert_date }}</h4>
             <hr class="my-4">
         {% if concert.concert_conductor %}
@@ -45,7 +45,7 @@
             <p class="card-text mb-5">{{ concert.concert_description}}</p>
         <div class="clearfix">
             <h5 class="card-text float-left"><strong>Location:</strong> {{ concert.location.friendly_name }}</h5>
-            <h5 class="card-text float-right"><strong>Price:</strong> {{ concert.concert_price }}</h5>
+            <h5 class="card-text float-right"><strong>Price:</strong> &euro; {{ concert.concert_price }}</h5>
         </div>
         <div class="clearfix">
             <h5 class="card-text float-right"><strong>Available tickets:</strong> {{ concert.concert_availability }}</h5>
