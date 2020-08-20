@@ -45,7 +45,7 @@
                     {% for item in cart_items %}
                     <tr>
                         <th scope="row">
-                        <img src="{{ item.concert.concert_image }}" alt="{{ item.concert.friendly_name }}"
+                        <img src="/media/{{ item.concert.concert_image }}" alt="{{ item.concert.friendly_name }}"
                             class="img-fluid z-depth-0">
                         </th>
                         <td>
@@ -57,7 +57,7 @@
                         <td></td>
                         <td>{{ item.concert.concert_price }}</td>
                         <td class="text-center text-md-left">
-                        <span class="qty">{{ item.concert.quantity }}</span>
+                        <span class="qty">{{ item.quantity }}</span>
                         <div class="btn-group radio-group ml-2" data-toggle="buttons">
                             <label class="btn btn-sm btn-primary btn-rounded">
                             <input type="radio" name="options" id="option1">&mdash;
