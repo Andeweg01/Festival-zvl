@@ -30,8 +30,8 @@ def cart_contents(request):
         'cart_items': cart_items,
         'sub_total': sub_total,
         'total': total,
-        'concert_count': concert_count,
         'grand_total': grand_total,
+        'concert_count': concert_count,
     }
 
     return context

@@ -45,7 +45,8 @@
                     {% for item in cart_items %}
                     <tr>
                         <th scope="row">
-                            <img src="/media/{{ item.concert.concert_image }}" alt="{{ item.concert.friendly_name }}"
+                            <img src="/media/{{ item.concert.concert_image }}" 
+                                alt="{{ item.concert.friendly_name }}"
                                 class="img-fluid z-depth-0">
                         </th>
                         <td>
@@ -59,10 +60,12 @@
                             <p class="mt-2">&euro;{{ item.concert.concert_price }}</p>
                         </td>
                         <td>
-                            <form class="form update-form text-center" method="POST" action="{% url 'adjust_cart' item.item_id %}">
+                            <form class="form update-form text-center" 
+                                method="POST" action="{% url 'adjust_cart' item.item_id %}">
                             {% csrf_token %}
-                            <input class="form-control form-qty" type="number" name="quantity" 
-                                value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                            <input class="form-control form-qty update-link" type="number" name="quantity" 
+                                value="{{ item.quantity }}" min="1" max="99" 
+                                data-item_id="{{ concert.id }}" id="id_qty_{{ concert.id }}">
                             <a class="update-link"><i class="fas fa-sync-alt text-primary"></i></a>
                             </form>
                         </td>
@@ -70,7 +73,8 @@
                             <p class="mt-2">&euro;{{ item.sub_total|floatformat:2 }}</p>
                         </td>
                         <td>
-                            <a href="{% url 'remove_from_cart' item.item_id %}" id="remove_{{ item.item_id }}" class="btn-floating btn-lg" data-toggle="tooltip" data-placement="top"
+                            <a href="{% url 'remove_from_cart' item.item_id %}" id="remove_{{ item.item_id }}" 
+                                class="btn-floating btn-lg" data-toggle="tooltip" data-placement="top"
                                 title="Remove item"><i class="fas fa-times-circle text-danger"></i></a>
                         </td>
                     </tr>
@@ -105,7 +109,6 @@
 {% endblock %}
 
 {% block postloadjs %}
-
 <script type="text/javascript">
     // quantity update function
     $('.update-link').click(function(e) {
@@ -117,7 +120,7 @@
     $('.remove-item').click(function(e) {
         var csrfToken = "{{ csrf_token }}"
         var itemId = $(this).attr('id').split('remove_')[1];
-        var url = '/cart/remove/$(itemId)';
+        var url = `cart/remove/$(itemId)`;
         var data = {'csrfmiddlewaretoken': csrfToken};
 
         $.post(url, data)
@@ -126,5 +129,4 @@
             });
     })
 </script>
-
 {% endblock %}
