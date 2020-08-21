@@ -14,7 +14,6 @@ def cart_contents(request):
 
     for item_id, quantity in cart.items():
         concert = get_object_or_404(Concert, pk=item_id)
-        sub_total = quantity * concert.concert_price
         total += quantity * concert.concert_price
         concert_count += quantity
         cart_items.append({
@@ -22,6 +21,7 @@ def cart_contents(request):
             'quantity': quantity,
             'concert': concert,
             'sub_total': sub_total,
+            'concert_count': concert_count,
         })
 
     grand_total = total
