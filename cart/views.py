@@ -44,6 +44,7 @@ def remove_from_cart(request, item_id):
 
     try:
         cart = request.session.get('cart', {})
+
         cart.pop(item_id)
 
         request.session['cart'] = cart
