@@ -6,39 +6,34 @@
 <section>
     <!-- MDBoostrap form tweaked for Festival -->
     <h3 class="text-center my-2 display-4"><strong>Checkout</strong></h3>
-    <hr class="w-header my-4">
+    <hr class="w-header my-3">
     <p class="lead text-center text-muted pt-2 mb-5">Please complete your order by filling in this form:</p>
-		
-    <!--First row-->
     <div class="row d-flex justify-content-center">
-
-      <!--First column-->
       <div class="col-6">
-
-        <!-- Material outline input -->
         <div class="md-form md-outline form-lg">
-          <input type="text" id="form1" class="form-control form-control-lg">
-          <label for="form1">Name</label>
+            <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+                {% csrf_token %}
+                <fieldset class="form-control form-controle-lg">
+                    <legend class="fieldset-label pearl-text">Personal Details</legend>
+                    {{ order_form.full_name | as_crispy_field }}
+                    {{ order_form.email | as_crispy_field }}
+                </fieldset>
+                <fieldset class="form-control form-controle-lg">
+                    <legend class="fieldset-label pearl-text">Delivery Details</legend>
+                    {{ order_form.phone_number | as_crispy_field }}
+                    {{ order_form.country | as_crispy_field }}
+                    {{ order_form.postcode | as_crispy_field }}
+                    {{ order_form.town_or_city | as_crispy_field }}
+                    {{ order_form.street_address1 | as_crispy_field }}
+                    {{ order_form.street_address2 | as_crispy_field }}
+                    {{ order_form.county | as_crispy_field }}
+                </fieldset>
+            </form>
         </div>
-        
-        <!-- Material outline input -->
-        <div class="md-form md-outline form-lg">
-          <input type="text" id="form2" class="form-control form-control-lg">
-          <label for="form2">Email</label>
+        <div class="row d-flex justify-content-center">
+            <div class="col-6">
+                <button class="btn btn-block btn-primary btn-lg">Checkout</button>
+            </div>
         </div>
-        
-        <!-- Material outline input -->
-        <div class="md-form md-outline form-lg">
-          <input type="text" id="form3" class="form-control form-control-lg">
-          <label for="form3">Password</label>
-        </div>
-        
-        <button class="btn btn-block btn-primary btn-lg">Sign up</button>
-
-      </div>
-      <!--First column-->
-
     </div>
-    <!--First row-->
-
-  </section>{% endblock %}
+</section>{% endblock %}
