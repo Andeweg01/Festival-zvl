@@ -64,5 +64,5 @@ def remove_from_cart(request, item_id):
         return HttpResponse(status=200)
 
     except Exception as e:
-        messages.error(request, f'Error removing {concert.friendly_name} from your shopping cart')
+        messages.error(request, f'Error removing from your shopping cart')
         return HttpResponse(status=500)
