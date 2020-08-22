@@ -92,9 +92,8 @@
                 <div class="clearfix">
                     <div class="font-weight-bold float-right">
                         Grand Total: <strong>&euro;{{ grand_total|floatformat:2 }}</strong>
-                        <button type="button" class="btn btn-primary btn-rounded text-right">Complete purchase
-                            <i class="fas fa-angle-right right"></i>
-                        </button>
+                        <a href="{% url 'checkout' %}" type="button" class="btn btn-primary btn-rounded text-right">Complete purchase
+                            <i class="fas fa-angle-right right"></i></a>
                     </div>
                 </div>
             </div>
