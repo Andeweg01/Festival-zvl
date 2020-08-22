@@ -61,6 +61,22 @@ body {
     display: inline-block !important;
 }
 
+/* Bootstrap toasts styling and positioning */
+.message-container {
+    position: fixed;
+    top: 150px;
+    right: 25px;
+    z-index: 99999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
 @media (max-width: 991px) {
     body {
         background: url('/media/Oester_backsm.jpg') no-repeat right center fixed;

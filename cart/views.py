@@ -1,4 +1,7 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse
+from django.contrib import messages
+
+from concerts.models import Concert
 
 # Create your views here.
 
@@ -11,6 +14,7 @@ def view_cart(request):
 
 def add_to_cart(request, item_id):
 
+    concert = Concert.objects.get(pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     cart = request.session.get('cart', {})
@@ -19,6 +23,7 @@ def add_to_cart(request, item_id):
         cart[item_id] += quantity
     else:
         cart[item_id] = quantity
+        messages.success(request, f'You have added { concert.friendly_name } to the shopping cart')
 
     request.session['cart'] = cart
     return redirect(redirect_url)
@@ -28,6 +33,7 @@ def adjust_cart(request, item_id):
     """Adjust the quantity of the specified product to the specified amount"""
 
     quantity = int(request.POST.get('quantity'))
+    redirect_url = request.POST.get('redirect_url')
     cart = request.session.get('cart', {})
 
     if quantity > 0:
@@ -36,7 +42,7 @@ def adjust_cart(request, item_id):
         cart.pop(item_id)
 
     request.session['cart'] = cart
-    return redirect(reverse('view_cart'))
+    return redirect(redirect_url)
 
 
 def remove_from_cart(request, item_id):
@@ -44,6 +50,7 @@ def remove_from_cart(request, item_id):
 
     try:
         cart = request.session.get('cart', {})
+        redirect_url = request.POST.get('redirect_url')
 
         cart.pop(item_id)
 
