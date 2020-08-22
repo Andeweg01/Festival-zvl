@@ -64,8 +64,8 @@ body {
 /* Bootstrap toasts styling and positioning */
 .message-container {
     position: fixed;
+    right: 42%;
     top: 150px;
-    right: 25px;
     z-index: 99999;
 }
 
