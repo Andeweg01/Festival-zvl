@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect, reverse, HttpResponse
 
 
 def view_cart(request):
-    """ view to return cart.html showing contents of the shopping cart """
+    """ view to return cart showing contents of the shopping cart """
 
     return render(request, 'cart/cart.html')
 

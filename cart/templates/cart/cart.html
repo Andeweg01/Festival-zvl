@@ -68,6 +68,7 @@
                                 value="{{ item.quantity }}" min="1" max="99" 
                                 data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
                             <a class="update-link"><i class="fas fa-sync-alt text-primary"></i></a>
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             </form>
                         </td>
                         <td>
@@ -77,6 +78,7 @@
                             <a href="{% url 'remove_from_cart' item.item_id %}" id="remove_{{ item.item_id }}" 
                                 class="btn-floating btn-md mt-2" data-toggle="tooltip" data-placement="top"
                                 title="Remove item"><i class="fas fa-times-circle text-danger"></i></a>
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </td>
                     </tr>
                     {% endfor %}
