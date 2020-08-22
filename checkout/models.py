@@ -30,7 +30,7 @@ class Order(models.Model):
 
     def update_total(self):
         """
-        Update grand total each time a line item is added,
+        Update grand_total each time a line item is added,
         accounting for delivery costs.
         """
         self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum']
@@ -41,7 +41,7 @@ class Order(models.Model):
     def save(self, *args, **kwargs):
         """
         Override the original save method to set the order number
-        if it hasn't been set already.
+        if it hasn't been set before.
         """
         if not self.order_number:
             self.order_number = self._generate_order_number()
