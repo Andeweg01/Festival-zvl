@@ -24,12 +24,9 @@ card.mount('#card-element');
 card.addEventListener('change', function (event) {
     var errorDiv = document.getElementById('card-errors');
     if (event.error) {
-        var html = `
-            <span class="icon" role="alert">
-                <i class="fas fa-exclamation-circle"></i>
-        </span>
-        <span>${event.error.message}</span>
-    `;
+        var html = `<span class="icon" role="alert">
+            <i class="fas fa-exclamation-circle"></i></span>
+            <span>${event.error.message}</span>`;
     $(errorDiv).html(html);
     } else {
         errorDiv.textContent = '';
@@ -43,7 +40,7 @@ form.addEventListener('submit', function(ev) {
     ev.preventDefault();
     card.update({ 'disabled': true });
     $('#submit-button').attr('disabled', true);
-    stripe.confirmCardPayment(clientSecret, {
+    stripe.confirmCardPayment(client_secret, {
         payment_method: {
             card: card,
         }
