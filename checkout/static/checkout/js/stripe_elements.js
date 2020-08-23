@@ -45,7 +45,7 @@ form.addEventListener('submit', function(ev) {
     $('#submit-button').attr('disabled', true);
     stripe.confirmCardPayment(clientSecret, {
         payment_method: {
-            card: card;
+            card: card,
         }
     }).then(function(result) {
         if (result.error) {
