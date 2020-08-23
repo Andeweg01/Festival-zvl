@@ -2,6 +2,10 @@
 {% load static %}
 {% load bag_tools %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
 {% block content %}
 <section>
     <!-- MDBoostrap form tweaked for Festival -->
@@ -14,12 +18,12 @@
             <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                 {% csrf_token %}
                 <fieldset class="form-control form-controle-lg">
-                    <legend class="fieldset-label pearl-text text-warning">Personal Details</legend>
+                    <legend class="fieldset-label pearl-text text-warning ml-2">Personal Details</legend>
                     {{ order_form.full_name | as_crispy_field }}
                     {{ order_form.email | as_crispy_field }}
                 </fieldset>
                 <fieldset class="form-control form-controle-lg">
-                    <legend class="fieldset-label pearl-text text-warning">Delivery Details</legend>
+                    <legend class="fieldset-label pearl-text text-warning ml-2">Delivery Details</legend>
                     {{ order_form.street_address1 | as_crispy_field }}
                     {{ order_form.street_address2 | as_crispy_field }}
                     {{ order_form.postcode | as_crispy_field }}
@@ -33,17 +37,17 @@
                         <label class="custom-control-label" for="id-save-info">
                             <span class="small">Save delivery info to my account</span></label>
                     {% else %}
-                        <label class="custom-control-label" for="id-save-info">
-                            <a href="{% url 'account_signup' %}"><span class="small">Create an account</span></a> 
-                                <span class="small"> or</span> 
-                            <a href="{% url 'account_login' %}"><span class="small">Login</span></a> 
-                                <span class="small">to save this information.</span>
-                        </label>
+                        <div class="float-right">
+                        <a href="{% url 'account_signup' %}"><span class="small">Create an account</span></a> 
+                            <span class="small"> or</span> 
+                        <a href="{% url 'account_login' %}"><span class="small">login</span></a> 
+                            <span class="small">to save this information.</span>
+                        </div>
                     {% endif %}
                     </div>
                 </fieldset>
-                <fieldset class="px-3">
-                    <legend class="fieldset-label pearl-text text-warning">Payment</legend>
+                <fieldset class="form-control form-controle-lg">
+                    <legend class="fieldset-label pearl-text text-warning ml-2">Payment</legend>
                     <!-- for stripe -->
                     <div class="mb-3" id="card-element"></div>
 
@@ -69,8 +73,9 @@
 {% endblock %}
 
 {% block postloadjs %}
+    <!-- django templates variables can't be rendered in external js so we need json-script -->
     {{ block.super }}
     {{ stripe_public_key|json_script:"id_stripe_public_key" }}
     {{ client_secret|json_script:"id_client_secret" }}
-    
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
