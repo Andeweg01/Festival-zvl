@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+<section>
+    <!-- MDBoostrap form tweaked for Festival -->
+    <h3 class="text-center my-2 display-4"><strong>Thank you</strong></h3>
+    <hr class="w-header my-3">
+    <p class="lead text-center text-muted pt-2 mb-5">We have received your order (a confirmation will be sent to <strong>{{ order.email }}</strong>) for the following:</p>
+    <div class="row d-flex justify-content-center">
+        <div class="col-6">
+
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block postloadjs %}
+{% endblock %}

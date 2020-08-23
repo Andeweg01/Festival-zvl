@@ -4,6 +4,7 @@ from django.conf import settings
 
 from .forms import OrderForm
 from .models import Order, OrderLineItem
+from concerts.models import Concert
 from cart.contexts import cart_contents
 
 import stripe
@@ -50,7 +51,8 @@ def checkout(request):
                             order_line_item.save()
                 except Concert.DoesNotExist:
                     messages.error(request, (
-                        "A concert in your cart is not in our database. Please contact us.")
+                        "A concert in your cart is not in our database. \
+                            Please contact us.")
                     )
                     order.delete()
                     return redirect(reverse('view_cart'))
@@ -58,11 +60,13 @@ def checkout(request):
             request.session['save_info'] = 'save-info' in request.POST
             return redirect(reverse('checkout_success', args=[order.order_number]))
         else:
-            messages.error(request, 'There was an error with your form. Please check your info again.')
+            messages.error(request, 'There was an error with your form. \
+                Please check your info again.')
     else:
         cart = request.session.get('cart', {})
         if not cart:
-            messages.error(request, "There's nothing in you shopping cart at the moment")
+            messages.error(request, "There's nothing in your \
+                shopping cart at the moment")
             return redirect(reverse('concerts'))
 
         current_cart = cart_contents(request)
@@ -77,7 +81,8 @@ def checkout(request):
         order_form = OrderForm()
 
     if not stripe_public_key:
-        message.warming(request, 'Stripe public key is missing. Set in your environment.')
+        messages.warning(request, 'Stripe public key is missing. \
+            Set it in your environment.')
 
     template = 'checkout/checkout.html'
     context = {
@@ -85,5 +90,22 @@ def checkout(request):
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
     }
+
+    return render(request, template, context)
+
+
+def checkout_success(request, order_number):
+    save_info = request.session.get('save_info')
+    order = get_object_or_404(Order, order_number=order_number)
+    messages.success(request, f'Your order {order_number} was successful \
+        You will receive a confirmation on {order.email}.')
+
+    if 'cart' in request.session:
+        del request.session['cart']
+
+        template = 'checkout/checkout_success.html'
+        context = {
+            'order': order,
+        }
 
     return render(request, template, context)
