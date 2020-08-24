@@ -57,7 +57,9 @@
                     <div class="row">
                         <a href="{% url 'view_cart' %}" class="btn btn-outline-blue btn-lg mb-5 rounded-top">Adjust shopping cart</a>
                         <button id="submit-button" class="btn btn-blue btn-lg mb-5 rounded-top">Complete order</button>
+                        <div id="start-spin" class="spinner-border mt-3" role="status"><span class="sr-only spinner-content">Loading...</span></div>
                     </div>
+
                     <div class="row">
                         <p class="small text-danger my-2">
                             <span class="icon">
@@ -71,6 +73,7 @@
         </div>
     </div>
 </section>
+
 {% endblock %}
 
 {% block postloadjs %}
@@ -79,4 +82,5 @@
     {{ stripe_public_key|json_script:"id_stripe_public_key" }}
     {{ client_secret|json_script:"id_client_secret" }}
     <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+
 {% endblock %}

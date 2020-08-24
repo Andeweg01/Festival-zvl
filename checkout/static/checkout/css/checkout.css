@@ -32,3 +32,13 @@
     border: 1px solid #00396D;
     border-radius: 3px;
 }
+
+#start-spin {
+    display: none;
+    color: #00396D;
+    z-index: 9999;
+}
+
+.spinner-content {
+    display: flex;
+}
