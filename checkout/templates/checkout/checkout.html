@@ -48,11 +48,16 @@
                     </fieldset>
                     <fieldset class="form-control form-controle-lg">
                         <legend class="fieldset-label pearl-text text-warning ml-2">Payment</legend>
+
                         <!-- for stripe -->
                         <div class="mb-3" id="card-element"></div>
 
                         <!-- for form errors display -->
                         <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+
+                        <!-- pass the client_secret to the view to get the payment intent id -->
+                        <input type="hidden" value="{{ client_secret }}" name="client_secret">
+                        
                     </fieldset>
                     <div class="row">
                         <a href="{% url 'view_cart' %}" class="btn btn-outline-blue btn-lg mb-5 rounded-top">Adjust shopping cart</a>
