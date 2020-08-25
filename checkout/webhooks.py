@@ -13,7 +13,7 @@ def webhook(request):
     """ listen to webhooks from stripe """
     # Setup
     wh_secret = settings.STRIPE_WH_SECRET
-    stripe_api_key = settings.STRIPE_SECRET_KEY
+    stripe.api_key = settings.STRIPE_SECRET_KEY
 
     # Get webhook data and verify its signature
     payload = request.body
@@ -30,7 +30,7 @@ def webhook(request):
     except stripe.error.SignatureVerificationError as e:
         # Invalid signature
         return HttpResponse(status=400)
-    except Esception as e:
+    except Exception as e:
         return HttpResponse(content=e, status=400)
 
     # setup of the webhook handler
