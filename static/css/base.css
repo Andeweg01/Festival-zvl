@@ -77,6 +77,19 @@ body {
     height: 2px;
 }
 
+/* allauth styling */
+.allauth-form-inner-content p {
+    color: #00396D;
+}
+
+.allauth-form-inner-content label:not([for='id_remember']) {
+    display: none;
+}
+
+.allauth-form-inner-content input::placeholder {
+    color: #AAB7C4;
+}
+
 @media (max-width: 991px) {
     body {
         background: url('/media/Oester_backsm.jpg') no-repeat right center fixed;
