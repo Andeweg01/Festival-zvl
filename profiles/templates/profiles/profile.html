@@ -6,27 +6,34 @@
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-10 text-center">
-            <h5 class="mt-5">Your Profile</h5>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-10">
-            <div class="container z-depth-1 p-3 my-3">{{ profile }}
+<section>
+    <!-- MDBoostrap form tweaked for Festival -->
+    <h3 class="text-center my-2 display-4"><strong>Your Profile</strong></h3>
+    <hr class="w-header my-3">
+    <p class="lead text-center text-muted pt-2 mb-5">Check your details and update if necessary:</p>
+    <div class="row d-flex justify-content-center">
+        <div class="col-6">
+            <div class="md-form md-outline form-lg">
+                <form action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                    {% csrf_token %}
+                    <fieldset class="form-control form-control-lg">
+                        <legend class="fieldset-label pearl-text text-warning ml-2">Default Delivery Information</legend>
+                        {{ form|crispy }}
+                    </fieldset>
+                    <button class="btn btn-blue btn-lg mb-5 rounded-top">Update Information</button>
+                </form>
+                    <fieldset class="form-control form-control-lg">
+                        <legend class="fieldset-label pearl-text text-warning ml-2">Order History</legend>
+                        {{ orders }}
+                    </fieldset>
             </div>
         </div>
     </div>
-</div>
-
-{% endblock %}
+</section>{% endblock %}
 
 {% block postloadjs %}
     <!-- django templates variables can't be rendered in external js so we need json-script -->
     {{ block.super }}
-    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
-    {{ client_secret|json_script:"id_client_secret" }}
-    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+    <script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
 
 {% endblock %}

@@ -1,0 +1,21 @@
+.fieldset-label {
+    position: relative;
+    right: .5rem;
+}
+
+select,
+select option {
+    color: #FFFFFF;
+}
+
+select:invalid,
+select option[value=""] {
+    color: #808080 !important;
+}
+
+#payment-form .form-control,
+#card-element {
+    color: #FFFFFF;
+    border: 1px solid #00396D;
+    border-radius: 3px;
+}
