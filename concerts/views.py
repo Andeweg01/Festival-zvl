@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Concert, Edition, Location
 
-# Create your views here.
+from .forms import ConcertForm
+
 
 def all_concerts(request):
     """ the view to return concerts.html """
@@ -41,3 +42,14 @@ def concert_detail(request, concert_id):
     }
     
     return render(request, 'concerts/concert_detail.html', context)
+
+
+def add_concert(request):
+    """ add a concert to the database """
+    form = ConcertForm()
+    template = 'concerts/add_concert.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
