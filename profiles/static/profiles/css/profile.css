@@ -5,7 +5,7 @@
 
 select,
 select option {
-    color: #FFFFFF;
+    color: #00396D;
 }
 
 select:invalid,
@@ -19,4 +19,3 @@ select option[value=""] {
     border: 1px solid #00396D;
     border-radius: 3px;
 }
-
