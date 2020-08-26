@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+<section>
+    <!-- MDBoostrap form tweaked for Festival -->
+    <h3 class="text-center my-2 display-4"><strong>Your Profile</strong></h3>
+    <hr class="w-header my-3">
+    <p class="lead text-center text-muted pt-2 mb-5">:</p>
+</section>
+
+{% endblock %}
+
+{% block postloadjs %}
+    <!-- django templates variables can't be rendered in external js so we need json-script -->
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+
+{% endblock %}

@@ -1,1 +1,20 @@
 {% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-10 text-center">
+            <h3 class="mt-5">Your Account</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10">
+            <div class="container z-depth-1 p-3 my-3">
+
+            <!-- inner_content block for allauth templates -->
+            {% block inner_content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
