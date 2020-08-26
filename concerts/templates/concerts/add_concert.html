@@ -9,13 +9,13 @@
 {% block content %}
 <section>
     <!-- MDBoostrap form tweaked for Festival -->
-    <h3 class="text-center my-2 display-4"><strong>Add a Concert</strong></h3>
+    <h3 class="text-center my-2 display-4"><strong>Concert Management</strong></h3>
     <hr class="w-header my-3">
-    <p class="lead text-center text-muted pt-2 mb-5">Please:</p>
+    <p class="lead text-center text-muted pt-2 mb-5">Add a Concert:</p>
     <div class="row d-flex justify-content-center">
         <div class="col-6">
             <div class="md-form md-outline form-lg">
-                <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+                <form action="{% url 'add_product' %}" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     <fieldset class="form-control form-control-lg">
                         <legend class="fieldset-label pearl-text text-warning ml-2">Personal Details</legend>
@@ -79,14 +79,5 @@
         </div>
     </div>
 </section>
-
-{% endblock %}
-
-{% block postloadjs %}
-    <!-- django templates variables can't be rendered in external js so we need json-script -->
-    {{ block.super }}
-    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
-    {{ client_secret|json_script:"id_client_secret" }}
-    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 
 {% endblock %}
