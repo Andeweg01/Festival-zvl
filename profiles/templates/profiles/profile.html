@@ -22,14 +22,83 @@
                     </fieldset>
                     <button class="btn btn-blue btn-lg mb-5 rounded-top">Update Information</button>
                 </form>
-                    <fieldset class="form-control form-control-lg">
-                        <legend class="fieldset-label pearl-text text-warning ml-2">Order History</legend>
-                        {{ orders }}
-                    </fieldset>
+                <fieldset class="form-control form-control-lg">
+                    <legend class="fieldset-label pearl-text text-warning ml-2">Order History</legend>
+                        <section>
+                                <!-- Orders table -->
+                        <div class="table-responsive">
+                            <table class="table product-table mb-3 p-3">
+                                <!-- Table head -->
+                                <thead mdb-color lighten-5>
+                                <tr>
+                                    <th></th>
+                                    <th class="font-weight-bold">
+                                    <strong>Order Number</strong>
+                                    </th>
+                                    <th></th>
+                                    <th class="font-weight-bold">
+                                    <strong>Order Date</strong>
+                                    </th>
+                                    <th class="font-weight-bold">
+                                    <strong>Concerts</strong>
+                                    </th>
+                                    <th class="font-weight-bold">
+                                    <strong>Order Total</strong>
+                                    </th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <!-- Table head -->
+                                <!-- Table body -->
+                                <tbody>
+                                {% for order in orders %}
+                                <tr>
+                                    <th scope="row">
+                                        <a href="{% url 'order_history' order.order_number %}" 
+                                        title="{{ order.order_number }}">
+                                            {{ order.order_number|truncatechars:6 }}
+                                        </a>
+                                    </th>
+                                    <td>
+                                        <p>{{ order.date }}</p>
+                                    </td>
+                                    <td></td>
+                                    <td>
+                                        <ul class="list-unstyled">
+                                        {% for item in order.lineitems.all %}
+                                            <li class="small">
+                                                {{ item.friendly_name }} X {{ item.quantity }}
+                                        {% endfor %}
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <p>&euro;{{ order.grand_total }}</p>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                                <!-- Table body -->
+                            </table>
+                        </div>
+                            <!-- Orders table -->
+                        </section>
+                </fieldset>
             </div>
+                <a href="{% url 'concerts' %}" class="btn btn-warning btn-md uppercase-font">
+                    <i class="fas fa-backward mr-2"></i> back to concerts</a>
         </div>
     </div>
-</section>{% endblock %}
+</section>
+{% endblock %}
 
 {% block postloadjs %}
+
+    <script type="text/javascript">
+        $('.toast').toast('show');
+    </script>
+
 {% endblock %}

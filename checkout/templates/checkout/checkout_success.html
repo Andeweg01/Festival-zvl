@@ -157,7 +157,13 @@
                                 <p class="font-weight-bold text-muted text-right">&euro; {{ order.grand_total }}</p>
                             </div>
                         </div>
-
+                            {% if from_profile %}
+                            <a href="{% url 'profile' %}" class="btn btn-warning btn-md uppercase-font">
+                                <i class="fas fa-backward mr-2"></i> back to profile</a>
+                            {% else %}
+                            <a href="{% url 'concerts' %}" class="btn btn-warning btn-md uppercase-font">
+                                <i class="fas fa-backward mr-2"></i> back to concerts</a>
+                            {% endif %}
                     </div>
                 </div>
             </div>
