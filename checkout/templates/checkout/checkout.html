@@ -17,12 +17,12 @@
             <div class="md-form md-outline form-lg">
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
-                    <fieldset class="form-control form-controle-lg">
+                    <fieldset class="form-control form-control-lg">
                         <legend class="fieldset-label pearl-text text-warning ml-2">Personal Details</legend>
                         {{ order_form.full_name | as_crispy_field }}
                         {{ order_form.email | as_crispy_field }}
                     </fieldset>
-                    <fieldset class="form-control form-controle-lg">
+                    <fieldset class="form-control form-control-lg">
                         <legend class="fieldset-label pearl-text text-warning ml-2">Delivery Details</legend>
                         {{ order_form.street_address1 | as_crispy_field }}
                         {{ order_form.street_address2 | as_crispy_field }}
@@ -46,7 +46,7 @@
                         {% endif %}
                         </div>
                     </fieldset>
-                    <fieldset class="form-control form-controle-lg">
+                    <fieldset class="form-control form-control-lg">
                         <legend class="fieldset-label pearl-text text-warning ml-2">Payment</legend>
 
                         <!-- for stripe -->

@@ -14,7 +14,7 @@
 }
 
 .StripeElement--webkit-autofill {
-  background-color: #fefde5 !important;
+  background-color: #f0f0f0 !important;
 }
 
 .stripe-style-input::placeholder {
@@ -24,6 +24,16 @@
 .fieldset-label {
     position: relative;
     right: .5rem;
+}
+
+select,
+select option {
+    color: #00396D;
+}
+
+select:invalid,
+select option[value=""] {
+    color: #808080 !important;
 }
 
 #payment-form .form-control,
