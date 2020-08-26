@@ -31,11 +31,9 @@
                                 <!-- Table head -->
                                 <thead mdb-color lighten-5>
                                 <tr>
-                                    <th></th>
                                     <th class="font-weight-bold">
                                     <strong>Order Number</strong>
                                     </th>
-                                    <th></th>
                                     <th class="font-weight-bold">
                                     <strong>Order Date</strong>
                                     </th>
@@ -62,12 +60,12 @@
                                     <td>
                                         <p>{{ order.date }}</p>
                                     </td>
-                                    <td></td>
                                     <td>
                                         <ul class="list-unstyled">
                                         {% for item in order.lineitems.all %}
                                             <li class="small">
                                                 {{ item.friendly_name }} X {{ item.quantity }}
+                                            </li>
                                         {% endfor %}
                                         </ul>
                                     </td>
