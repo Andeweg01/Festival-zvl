@@ -32,8 +32,4 @@
 </section>{% endblock %}
 
 {% block postloadjs %}
-    <!-- django templates variables can't be rendered in external js so we need json-script -->
-    {{ block.super }}
-    <script type="text/javascript" src="{% static 'profiles/js/countryfield.js' %}"></script>
-
 {% endblock %}
