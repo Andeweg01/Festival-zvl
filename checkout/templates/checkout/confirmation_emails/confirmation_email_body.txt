@@ -1,0 +1,23 @@
+Dear {{ order.full_name }},
+
+We herewith confirm that you ordered the following tickets for Festival van Zeeuwsch-Vlaanderen:
+
+Order number: {{ order.order_number }}
+Order date: {{ order.date }}
+
+Order Total &eur; {{ order.order_total }}
+
+Your tickets will be sent to:
+{{ order.street_address1 }} {{ order.street_address2 }}
+{{ order.postcode }} {{ order.town_or_city }}
+{{ order.country }}
+
+We have your phone number {{ order.phone_number }} on file.
+If you have any questions regarding your order, please contact us on {{ contact_email }}.
+
+We wish you an unforgettable Festival and thank you for your order.
+
+Kind regards,
+Rinus Meesen,
+managing director of
+Festival van Zeeuwsch-Vlaanderen

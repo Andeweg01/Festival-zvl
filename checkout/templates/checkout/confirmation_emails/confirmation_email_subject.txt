@@ -1,0 +1,1 @@
+Festival van Zeeuwsch-Vlaanderen confirmation for order {{ order.order_number }} {{ order.friendly_name }}
