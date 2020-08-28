@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
-from .models import Concert, Edition, Location
 
+from .models import Concert, Edition, Location
 from .forms import ConcertForm
 
 
@@ -59,6 +59,30 @@ def add_concert(request):
     template = 'concerts/add_concert.html'
     context = {
         'form': form,
+    }
+
+    return render(request, template, context)
+
+
+def edit_concert(request, concert_id):
+    """ edit a concert in the database """
+    concert = get_object_or_404(Concert, pk=concert_id)
+    if request.method == 'POST':
+        form = ConcertForm(request.POST, request.FILES, instance=concert)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated the concert.')
+            return redirect(reverse('concert_detail', args=[concert.id]))
+        else:
+            messages.error(request, 'Failed to update the concert. Please check the form.')
+    else:
+        form = ConcertForm(instance=concert)
+        messages.info(request, f'You are editing {concert.concert_name}')
+
+    template = 'concerts/edit_concert.html'
+    context = {
+        'form': form,
+        'concert': concert,
     }
 
     return render(request, template, context)

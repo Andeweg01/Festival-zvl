@@ -9,15 +9,15 @@
     <!-- MDBoostrap form tweaked for Festival -->
     <h3 class="text-center my-2 display-4"><strong>Concert Management</strong></h3>
     <hr class="w-header my-3">
-    <p class="lead text-center text-muted pt-2 mb-5">Add a Concert:</p>
+    <p class="lead text-center text-muted pt-2 mb-5">Edit a Concert:</p>
     <div class="row d-flex justify-content-center">
         <div class="col-6">
-            <form class="form form-lg" method="POST" action="{% url 'add_concert' %}" enctype="multipart/form-data">
+            <form class="form form-lg" method="POST" action="{% url 'edit_concert' concert.id %}" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form|crispy }}
                 <a href="{% url 'concerts' %}" class="btn btn-warning btn-lg mb-5 rounded-top">
                     <i class="fas fa-backward mr-2"></i> cancel</a>
-                <button id="submit-button" class="btn btn-blue btn-lg mb-5 rounded-top">Add Concert</button>
+                <button id="submit-button" class="btn btn-blue btn-lg mb-5 rounded-top">Update Concert</button>
             </form>
         </div>
     </div>
