@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
-
+from django.contrib.auth.decorators import login_required
 from .models import Concert, Edition, Location
 from .forms import ConcertForm
 
@@ -43,6 +43,7 @@ def concert_detail(request, concert_id):
     return render(request, 'concerts/concert_detail.html', context)
 
 
+@login_required
 def add_concert(request):
     """ add a concert to the database """
     if request.method == 'POST':
@@ -64,6 +65,7 @@ def add_concert(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_concert(request, concert_id):
     """ edit a concert in the database """
     concert = get_object_or_404(Concert, pk=concert_id)
@@ -87,6 +89,8 @@ def edit_concert(request, concert_id):
 
     return render(request, template, context)
 
+
+@login_required
 def delete_concert(request, concert_id):
     """ delete a concert from the database """
     concert = get_object_or_404(Concert, pk=concert_id)
