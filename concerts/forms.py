@@ -14,5 +14,5 @@ class ConcertForm(forms.ModelForm):
         friendly_names = [(c.id, c.get_friendly_name()) for c in editions]
 
         self.fields['edition'].choices =friendly_names
-        for field_name, field in slef.fields.items():
+        for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'rounded-top'

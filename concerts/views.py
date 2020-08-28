@@ -17,18 +17,16 @@ def all_concerts(request):
             concerts = concerts.filter(edition__name__in=editions)
             editions = Edition.objects.filter(name__in=editions)
 
-
     if request.GET:
         if 'location' in request.GET:
             locations = request.GET['location'].split(',')
             concerts = concerts.filter(location__loc_name__in=locations)
             locations = Location.objects.filter(loc_name__in=locations)
 
-
     context = {
         'concerts': concerts,
     }
-    
+
     return render(request, 'concerts/concerts.html', context)
 
 
@@ -40,7 +38,7 @@ def concert_detail(request, concert_id):
     context = {
         'concert': concert,
     }
-    
+
     return render(request, 'concerts/concert_detail.html', context)
 
 
