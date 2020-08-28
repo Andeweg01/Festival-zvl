@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+
 from .models import Concert, Edition, Location
 from .forms import ConcertForm
 
@@ -46,6 +47,10 @@ def concert_detail(request, concert_id):
 @login_required
 def add_concert(request):
     """ add a concert to the database """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only the site manager can add concerts')
+        return redirect(reverse('home'))
+
     if request.method == 'POST':
         form = ConcertForm(request.POST, request.FILES)
         if form.is_valid():
@@ -68,6 +73,10 @@ def add_concert(request):
 @login_required
 def edit_concert(request, concert_id):
     """ edit a concert in the database """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only the site manager can edit concerts')
+        return redirect(reverse('home'))
+
     concert = get_object_or_404(Concert, pk=concert_id)
     if request.method == 'POST':
         form = ConcertForm(request.POST, request.FILES, instance=concert)
@@ -93,6 +102,10 @@ def edit_concert(request, concert_id):
 @login_required
 def delete_concert(request, concert_id):
     """ delete a concert from the database """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only the site manager can delete concerts')
+        return redirect(reverse('home'))
+
     concert = get_object_or_404(Concert, pk=concert_id)
     concert.delete()
     messages.success(request, 'Concert is deleted!')
