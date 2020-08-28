@@ -48,9 +48,9 @@ def add_concert(request):
     if request.method == 'POST':
         form = ConcertForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            concert = form.save()
             messages.success(request, 'You added a concert successfully!')
-            return redirect(reverse('add_concert'))
+            return redirect(reverse('concert_detail', args=[concert.id]))
         else:
             messages.error(request, 'Failed to add the concert. Please check your form.')
     else:
@@ -86,3 +86,10 @@ def edit_concert(request, concert_id):
     }
 
     return render(request, template, context)
+
+def delete_concert(request, concert_id):
+    """ delete a concert from the database """
+    concert = get_object_or_404(Concert, pk=concert_id)
+    concert.delete()
+    messages.success(request, 'Concert is deleted!')
+    return redirect(reverse('concerts'))

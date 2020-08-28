@@ -64,8 +64,18 @@
                 </div>
             </form>
         </div>
-        <a href="{% url 'concerts' %}" class="btn btn-primary btn-md uppercase-font">
-            <i class="fas fa-backward mr-2"></i>back to program</a>
+            <div>
+            <a href="{% url 'concerts' %}" class="btn btn-primary btn-md uppercase-font">
+                <i class="fas fa-backward mr-2"></i>back to program</a>
+            </div>
+            {% if request.user.is_superuser %}
+            <hr class="w-header my-3">
+            <small>
+                <p>The site manager can edit or delete this concert:</p>
+                <a href="{% url 'edit_concert' concert.id %}">Edit</a>
+                <a class="text-danger" href="{% url 'delete_concert' concert.id %}">Delete</a>
+            </small>
+            {% endif %}
         </div>
     </div>
 </div>
