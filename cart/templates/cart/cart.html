@@ -46,9 +46,16 @@
                     {% for item in cart_items %}
                     <tr>
                         <th scope="row">
-                            <img src="/media/{{ item.concert.concert_image }}" 
+                        <!-- bug found: when using no_image.jpg in the else block it always renders no_image.jpg -->
+                            {% if item.concert.image %}
+                            <img src="{{ MEDIA_URL }}{{ item.concert.concert_image }}" 
                                 alt="{{ item.concert.friendly_name }}"
                                 class="img-fluid z-depth-0">
+                            {% else %}
+                            <img src="{{ MEDIA_URL }}{{ item.concert.concert_image }}" 
+                                alt="{{ item.concert.friendly_name }}"
+                                class="img-fluid z-depth-0">
+                            {% endif %}
                         </th>
                         <td>
                             <h5 class="my-2">

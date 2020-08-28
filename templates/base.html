@@ -102,7 +102,7 @@
                             <div class="dropdown-menu dropdown-default" aria-labelledby="user-options">
                                     {% if request.user.is_authenticated %}
                                         {% if request.user.is_superuser %}
-                                            <a href="#" class="dropdown-item">Management</a>
+                                            <a href="{% url 'add_concert' %}" class="dropdown-item">Management</a>
                                         {% endif %}
                                             <a href="{% url 'profile' %}" class="dropdown-item">User Profile</a>
                                             <a href="{% url 'account_logout' %}" class="dropdown-item">Log Out</a>

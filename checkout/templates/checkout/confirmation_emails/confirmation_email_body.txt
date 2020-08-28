@@ -5,7 +5,7 @@ We herewith confirm that you ordered the following tickets for Festival van Zeeu
 Order number: {{ order.order_number }}
 Order date: {{ order.date }}
 
-Order Total &eur; {{ order.order_total }}
+Order Total Euro: {{ order.order_total }}
 
 Your tickets will be sent to:
 {{ order.street_address1 }} {{ order.street_address2 }}

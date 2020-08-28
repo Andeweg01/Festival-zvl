@@ -1,0 +1,15 @@
+.fieldset-label {
+    position: relative;
+    right: .5rem;
+}
+
+select,
+select option {
+    color: #00396D;
+}
+
+select:invalid,
+select option[value=""] {
+    color: #808080 !important;
+}
+

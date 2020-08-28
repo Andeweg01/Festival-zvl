@@ -1,9 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
-{% load bag_tools %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+    <link rel="stylesheet" href="{% static 'concerts/css/concerts.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -14,21 +13,13 @@
     <p class="lead text-center text-muted pt-2 mb-5">Add a Concert:</p>
     <div class="row d-flex justify-content-center">
         <div class="col-6">
-            <div class="md-form md-outline form-lg">
-                <fieldset class="form-control form-control-lg">
-                    <legend class="fieldset-label pearl-text text-warning ml-2">Personal Details</legend>
-                        <form action="{% url 'add_concert' %}" method="POST" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        {{ form|crispy }}
-                        </form>
-                </fieldset>
-                <div class="row">
-                    <a href="{% url 'concerts' %}" class="btn btn-warning btn-lg mb-5 rounded-top">
-                        <i class="fas fa-backward mr-2"></i> cancel</a>
-                    <button id="submit-button" class="btn btn-blue btn-lg mb-5 rounded-top">Add Concert</button>
-                    <div id="start-spin" class="spinner-border mt-3" role="status"><span class="sr-only spinner-content">Loading...</span></div>
-                </div>
-            </div>
+            <form class="form form-lg" method="POST" action="{% url 'add_concert' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <a href="{% url 'concerts' %}" class="btn btn-warning btn-lg mb-5 rounded-top">
+                    <i class="fas fa-backward mr-2"></i> cancel</a>
+                <button id="submit-button" class="btn btn-blue btn-lg mb-5 rounded-top">Add Concert</button>
+            </form>
         </div>
     </div>
 </section>
