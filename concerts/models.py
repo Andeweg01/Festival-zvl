@@ -20,8 +20,8 @@ class Location(models.Model):
     loc_pc = models.CharField(max_length=8, null=True, blank=True)
     loc_place = models.CharField(max_length=254, null=True, blank=True)
 
-    def __string__(self):
-        return self.name
+    def __str__(self):
+        return self.loc_name
 
     def get_friendly_name(self):
         return self.friendly_name
