@@ -1,5 +1,5 @@
 from django import forms
-from .widgets import CustomClearableFileInput, CustomDateInput, CustomTimeInput
+from .widgets import CustomClearableFileInput
 from .models import Concert, Edition, Location
 
 
