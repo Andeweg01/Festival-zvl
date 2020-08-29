@@ -1,4 +1,5 @@
 from django import forms
+from .widgets import CustomClearableFileInput, CustomDateInput, CustomTimeInput
 from .models import Concert, Edition, Location
 
 
@@ -7,6 +8,9 @@ class ConcertForm(forms.ModelForm):
     class Meta:
         model = Concert
         fields = '__all__'
+
+    image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
+
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
