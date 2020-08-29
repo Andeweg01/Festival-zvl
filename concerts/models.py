@@ -3,8 +3,8 @@ from datetime import date, datetime
 
 
 class Edition(models.Model):
-    name = models.CharField(max_length=16)
-    friendly_name = models.CharField(max_length=16)
+    name = models.CharField(max_length=254)
+    friendly_name = models.CharField(max_length=254, null=True, blank=True)
 
     def __string__(self):
         return self.name

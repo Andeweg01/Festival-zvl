@@ -16,7 +16,7 @@ class StripeWH_Handler:
 
     def __init__(self, request):
         self.request = request
-    
+
     def _send_confirmation_email(self, order):
         """ Send user confirmation email for the order """
         cust_email = order.email
@@ -32,7 +32,7 @@ class StripeWH_Handler:
             body,
             settings.DEFAULT_FROM_EMAIL,
             [cust_email]
-        )        
+        )
 
     def handle_event(self, event):
         """ Handling any other than standard webhook event """
@@ -56,7 +56,7 @@ class StripeWH_Handler:
         for field, value in shipping_details.address.items():
             if value == "":
                 shipping_details.address[field] = None
-        
+
         # Update profile info if save_info was checked
         profile = None
         username = intent.metadata.username
@@ -148,7 +148,6 @@ class StripeWH_Handler:
 
     def handle_payment_intent_payment_failed(self, event):
         """ Handling payment_intent.payment_failed webhook by Stripe """
-
         return HttpResponse(
             content=f'Webhook received: {event["type"]}',
             status=200)

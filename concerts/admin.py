@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Concert, Edition, Location
 
+
 class ConcertAdmin(admin.ModelAdmin):
     list_display = (
         'sku',
@@ -23,11 +24,13 @@ class ConcertAdmin(admin.ModelAdmin):
 
     ordering = ('sku',)
 
+
 class EditionAdmin(admin.ModelAdmin):
     list_display = (
         'friendly_name',
         'name',
     )
+
 
 class LocationAdmin(admin.ModelAdmin):
     list_display = (
