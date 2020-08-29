@@ -1,10 +1,10 @@
 from django.db import models
-from datetime import date, datetime as dt
+from datetime import date, datetime
 
 
 class Edition(models.Model):
-    name = models.CharField(max_length=4)
-    friendly_name = models.CharField(max_length=4)
+    name = models.CharField(max_length=16)
+    friendly_name = models.CharField(max_length=16)
 
     def __string__(self):
         return self.name
