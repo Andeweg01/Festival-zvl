@@ -41,6 +41,7 @@ class LocationAdmin(admin.ModelAdmin):
         'loc_place',
     )
 
+
 admin.site.register(Concert, ConcertAdmin)
 admin.site.register(Edition, EditionAdmin)
 admin.site.register(Location, LocationAdmin)
