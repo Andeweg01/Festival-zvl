@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        <div class="col-8 text-center mb-5">
+            <h1 class="pearl-text mb-4 text-warning display-4">
+                <strong>Sponsoring</strong>
+            </h1>
+            <p class="mb-y">Our special thanks to the city councils of Terneuzen, Hulst, Sluis 
+            and the province of Zeeland for their subsidies. Also many thanks for donors and 
+            other sponsors making the Festival van Zeeuwsch-Vlaanderen possible. Their trust 
+            enables us to have a 32nd edition for which we put together a high quality program 
+            that, as always, shines on the international stage.<br>
+            The reputation of this small region of The Netherlands where life is good is well 
+            served by the festival thus making it well worth preserving.</p>
+            <h5 class="pearl-text text-warning">Our main sponsors for 2020:</h5>
+            <img src="/media/Sponsors.gif" class="img-fluid rounded" alt="Sponsors2020">
+            <a href="{% url 'concerts' %}" class="btn btn-outline-blue btn-lg mb-5 rounded-top">Enjoy
+                <i class="fas fa-music ml-2"></i>
+            </a>
+            <h5 class="pearl-text text-warning">From our main sponsor:</h5>
+            <p>North Sea Port is the proud sponsor of Gent Jazz, Flanders Festival Ghent, Film Fest Gent, 
+            Festival of Zeeuwsch-Vlaanderen, Zeeland Nazomerfestival and Four Freedom Awards.
+            North Sea Port and a number of cultural organisations are joining forces to put a lot of 
+            culture onto various stages in the coming years. An international character and being 
+            active on both sides of the Dutch-Belgian border is what unites North Sea Port and these 
+            cultural organisations. North Sea Port has been supporting various organisations and 
+            initiatives for some years, including a number in the cultural sector. North Sea Port will 
+            be continuing its cultural sponsorship and actively supporting six cultural and social events 
+            with four new primary sponsorships in the coming years: Gent Jazz, Flanders Festival Ghent, 
+            Film Fest Gent, Festival of Zeeuwsch-Vlaanderen plus Zeeland Nazomerfestival and 
+            Four Freedom Awards.</p>
+            <br>
+            <h5><strong>Culture connects across borders</strong></h5>
+            <p>North Sea Port has chosen these partners and events to strengthen the cross-border 
+            connection between the port, companies, the region and society. "Together we are investing 
+            in an attractive living and working environment as partners. These are initiatives which, 
+            like the port, provide an international, national and regional hub for dialogue, creativity 
+            and entrepreneurship", says Jan Lagasse, CEO North Sea Port. North Sea Port is committing 
+            itself for a period of three years. "This commitment will give cultural organisations confidence 
+            and support in the longer term. In these times of the coronavirus, it is clear that this is more 
+            important than ever", says Jan Lagasse. "The cross-fertilisation between tradition and innovation, 
+            between newcomers and old hands and the unifying power of culture and dialogue tie in with North 
+            Sea Port’s slogan: ‘Together.Smarter’.”<p>
+            <p>Festival of Zeeuwsch-Vlaanderen director Rinus Meesen: “We have been given the go-ahead 
+            for the 32nd edition of the Festival to take place from 18 September to 16 October, with some 
+            modifications. The festival's theme, ‘Boundless Classical Pearls’, is a nod to our cross-border 
+            character and our good relationship with Flanders/Belgium.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
