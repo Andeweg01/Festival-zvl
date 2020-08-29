@@ -41,7 +41,7 @@ class Concert(models.Model):
     concert_soloist = models.CharField(max_length=254, null=True, blank=True)
     concert_program = models.CharField(max_length=254, null=True, blank=True)
     concert_description = models.TextField(null=True, blank=True)
-    concert_time = models.CharField(max_length=16, default='20.00 uur')
+    concert_time = models.CharField(max_length=16, default='8 p.m.')
     concert_price = models.DecimalField(
         max_digits=5, decimal_places=2, null=True, blank=True
     )
