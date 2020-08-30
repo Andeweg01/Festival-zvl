@@ -46,7 +46,7 @@
         <header class="container-fluid fixed-top">
             <!--Navbar -->
             <nav class="mb-1 navbar navbar-expand-lg navbar-light white">
-            <a role="link" class="navbar-brand fzv-logo" href="{% url 'home' %}">
+            <a class="navbar-brand fzv-logo" href="{% url 'home' %}">
                 <img class="fzv-logo" src="/media/FestivalZVL_logo.png" 
                 alt="Festival van Zeeuwsch-Vlaanderen logo">
             </a>
@@ -57,7 +57,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a role="link" class="nav-link" href="{% url 'concerts' %}">Program
+                            <a class="nav-link" href="{% url 'concerts' %}">Program
                             </a>
                         </li>
                         <li class="nav-item dropdown">
@@ -76,26 +76,26 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a role="link" class="nav-link" href="{% url 'tickets' %}">Tickets</a>
+                            <a class="nav-link" href="{% url 'tickets' %}">Tickets</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a role="link" class="nav-link dropdown-toggle" id="previous-editions" 
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Previous
                             </a>
                             <div class="dropdown-menu dropdown-default" aria-labelledby="previous-editions">
-                            <a role="link" class="dropdown-item" href="{% url 'concerts' %}">All editions</a>
-                            <a role="link" class="dropdown-item" href="{% url 'concerts' %}?edition=2019">2019</a>
-                            <a role="link" class="dropdown-item" href="{% url 'concerts' %}?edition=2018">2018</a>
-                            <a role="link" class="dropdown-item" href="{% url 'concerts' %}?edition=2017">2017</a>
-                            <a role="link" class="dropdown-item" href="{% url 'concerts' %}?edition=2016">2016</a>
-                            <a role="link" class="dropdown-item" href="{% url 'concerts' %}?edition=2015">2015</a>
+                            <a class="dropdown-item" href="{% url 'concerts' %}">All editions</a>
+                            <a class="dropdown-item" href="{% url 'concerts' %}?edition=2019">2019</a>
+                            <a class="dropdown-item" href="{% url 'concerts' %}?edition=2018">2018</a>
+                            <a class="dropdown-item" href="{% url 'concerts' %}?edition=2017">2017</a>
+                            <a class="dropdown-item" href="{% url 'concerts' %}?edition=2016">2016</a>
+                            <a class="dropdown-item" href="{% url 'concerts' %}?edition=2015">2015</a>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a role="link" class="nav-link" href="{% url 'sponsoring' %}">Sponsoring</a>
+                            <a class="nav-link" href="{% url 'sponsoring' %}">Sponsoring</a>
                         </li>
                         <li class="nav-item">
-                            <a role="link" class="nav-link" href="{% url 'media' %}">Media</a>
+                            <a class="nav-link" href="{% url 'media' %}">Media</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav ml-auto nav-flex-icons">
@@ -119,7 +119,7 @@
                         </li>
                         <li class="nav-item mt-2">
                             <p class="my-0">
-                            <a role="link" class="{% if grand_total %}text-info{% else %}text-grey{% endif %}nav-link" 
+                            <a class="{% if grand_total %}text-info{% else %}text-grey{% endif %}nav-link" 
                                 href="{% url 'view_cart' %}">
                                 <i class="fas fa-shopping-cart"></i>
                                 {% if grand_total %}
