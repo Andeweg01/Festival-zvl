@@ -1,5 +1,7 @@
 from django.db import models
-from datetime import date, datetime
+
+import datetime
+from django.utils import timezone
 
 
 class Edition(models.Model):
@@ -35,14 +37,14 @@ class Concert(models.Model):
     concert_name = models.CharField(max_length=254, default='name')
     friendly_name = models.CharField(max_length=254,
                                      default='the full concert name')
-    concert_date = models.DateField(max_length=254, default=date.today)
+    concert_date = models.DateField(max_length=254, default='16 October 2020')
     concert_subtitle = models.CharField(max_length=254, null=True, blank=True)
     concert_theme = models.CharField(max_length=254, null=True, blank=True)
     concert_conductor = models.CharField(max_length=254, null=True, blank=True)
     concert_soloist = models.CharField(max_length=254, null=True, blank=True)
     concert_program = models.CharField(max_length=254, null=True, blank=True)
     concert_description = models.TextField(null=True, blank=True)
-    concert_time = models.CharField(max_length=16, default='8 p.m.')
+    concert_time = models.CharField(max_length=254, default='8 p.m.')
     concert_price = models.DecimalField(
         max_digits=5, decimal_places=2, null=True, blank=True
     )

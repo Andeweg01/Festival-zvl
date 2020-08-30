@@ -122,13 +122,15 @@ WSGI_APPLICATION = 'festival_zvl.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse('postgres://updyclxfzismmn:b246fe7c15a4f147bbb2f1c41af479a3fd5a855310e6c208efae5a21f91051f8@ec2-54-228-250-82.eu-west-1.compute.amazonaws.com:5432/d72296ksjfek78')
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
