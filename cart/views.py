@@ -60,7 +60,6 @@ def remove_from_cart(request, item_id):
     try:
         concert = get_object_or_404(Concert, pk=item_id)
         cart = request.session.get('cart', {})
-        redirect_url = request.POST.get('redirect_url')
 
         cart.pop(item_id)
         messages.success(request, f'You removed {concert.friendly_name} \
