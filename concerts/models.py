@@ -6,7 +6,7 @@ class Edition(models.Model):
     name = models.CharField(max_length=254)
     friendly_name = models.CharField(max_length=254, null=True, blank=True)
 
-    def __string__(self):
+    def __str__(self):
         return self.name
 
     def get_friendly_name(self):
@@ -33,7 +33,8 @@ class Concert(models.Model):
     )
     sku = models.CharField(max_length=254, null=True, blank=True)
     concert_name = models.CharField(max_length=254, default='name')
-    friendly_name = models.CharField(max_length=254, default='the full concert name')
+    friendly_name = models.CharField(max_length=254,
+                                     default='the full concert name')
     concert_date = models.DateField(max_length=254, default=date.today)
     concert_subtitle = models.CharField(max_length=254, null=True, blank=True)
     concert_theme = models.CharField(max_length=254, null=True, blank=True)

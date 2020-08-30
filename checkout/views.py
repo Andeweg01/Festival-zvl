@@ -83,10 +83,12 @@ def checkout(request):
                     return redirect(reverse('view_cart'))
 
             request.session['save_info'] = 'save-info' in request.POST
-            return redirect(reverse('checkout_success', args=[order.order_number]))
+            return redirect(reverse('checkout_success',
+                            args=[order.order_number]))
         else:
             messages.error(request, 'There was an error with your form. \
-                Please check your info again.')
+                Please check your info again. \
+                It might not be valid.')
     else:
         cart = request.session.get('cart', {})
         if not cart:
@@ -160,7 +162,8 @@ def checkout_success(request, order_number):
                 'default_county': order.county,
                 'default_country': order.country,
             }
-            user_profile_form = UserProfileForm(profile_data, instance=profile)
+            user_profile_form = UserProfileForm(profile_data,
+                                                instance=profile)
             if user_profile_form.is_valid():
                 user_profile_form.save()
 

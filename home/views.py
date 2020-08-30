@@ -24,4 +24,3 @@ def media(request):
     """ the view to media.html """
 
     return render(request, 'home/media.html')
-

@@ -18,7 +18,6 @@ class ConcertAdmin(admin.ModelAdmin):
         'concert_time',
         'concert_price',
         'concert_availability',
-        'concert_url'
         'concert_image',
         'location',
     )

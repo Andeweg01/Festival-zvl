@@ -21,17 +21,20 @@ def add_to_cart(request, item_id):
 
     if item_id in list(cart.keys()):
         cart[item_id] += quantity
-        messages.success(request, f'You changed the quantity of tickets for {concert.friendly_name} to {cart[item_id]}')
+        messages.success(request, f'You changed the quantity of tickets \
+                         for {concert.friendly_name} to {cart[item_id]}')
     else:
         cart[item_id] = quantity
-        messages.success(request, f'You have added {concert.friendly_name} to the shopping cart')
+        messages.success(request, f'You have added \
+                         {concert.friendly_name} to the shopping cart')
 
     request.session['cart'] = cart
     return redirect(redirect_url)
 
 
 def adjust_cart(request, item_id):
-    """Adjust the quantity of the specified product to the specified amount"""
+    """Adjust the quantity of the specified product \
+        to the specified amount"""
 
     concert = get_object_or_404(Concert, pk=item_id)
     quantity = int(request.POST.get('quantity'))
@@ -40,10 +43,12 @@ def adjust_cart(request, item_id):
 
     if quantity > 0:
         cart[item_id] = quantity
-        messages.success(request, f'You changed the quantity of tickets for {concert.friendly_name} to {cart[item_id]}')
+        messages.success(request, f'You changed the quantity of tickets \
+                         for {concert.friendly_name} to {cart[item_id]}')
     else:
         cart.pop(item_id)
-        messages.success(request, f'You removed {concert.friendly_name} from your shopping cart')
+        messages.success(request, f'You removed \
+                         {concert.friendly_name} from your shopping cart')
 
     request.session['cart'] = cart
     return redirect(redirect_url)
@@ -58,7 +63,8 @@ def remove_from_cart(request, item_id):
         redirect_url = request.POST.get('redirect_url')
 
         cart.pop(item_id)
-        messages.success(request, f'You removed {concert.friendly_name} from your shopping cart')
+        messages.success(request, f'You removed {concert.friendly_name} \
+                         from your shopping cart')
 
         request.session['cart'] = cart
         return HttpResponse(status=200)

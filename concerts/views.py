@@ -48,17 +48,22 @@ def concert_detail(request, concert_id):
 def add_concert(request):
     """ add a concert to the database """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only the site manager can add concerts')
+        messages.error(request, 'Sorry, only the site manager \
+                       can add concerts')
         return redirect(reverse('home'))
 
     if request.method == 'POST':
         form = ConcertForm(request.POST, request.FILES)
         if form.is_valid():
             concert = form.save()
-            messages.success(request, 'You added a concert successfully!')
-            return redirect(reverse('concert_detail', args=[concert.id]))
+            messages.success(request, 'You added a \
+                             concert successfully!')
+            return redirect(reverse('concert_detail',
+                            args=[concert.id]))
         else:
-            messages.error(request, 'Failed to add the concert. Please check your form.')
+            messages.error(request, 'Failed to add the concert. \
+                           Please check your form again. \
+                           It might not be valid.')
     else:
         form = ConcertForm()
 
@@ -74,7 +79,8 @@ def add_concert(request):
 def edit_concert(request, concert_id):
     """ edit a concert in the database """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only the site manager can edit concerts')
+        messages.error(request, 'Sorry, only the site manager \
+                       can edit concerts')
         return redirect(reverse('home'))
 
     concert = get_object_or_404(Concert, pk=concert_id)
@@ -85,7 +91,9 @@ def edit_concert(request, concert_id):
             messages.success(request, 'Successfully updated the concert.')
             return redirect(reverse('concert_detail', args=[concert.id]))
         else:
-            messages.error(request, 'Failed to update the concert. Please check the form.')
+            messages.error(request, 'Failed to update the concert. \
+                           Please check the form again. \
+                           It might not be valid.')
     else:
         form = ConcertForm(instance=concert)
         messages.info(request, f'You are editing {concert.concert_name}')
@@ -103,7 +111,8 @@ def edit_concert(request, concert_id):
 def delete_concert(request, concert_id):
     """ delete a concert from the database """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry, only the site manager can delete concerts')
+        messages.error(request, 'Sorry, only the site manager \
+                       can delete concerts')
         return redirect(reverse('home'))
 
     concert = get_object_or_404(Concert, pk=concert_id)
