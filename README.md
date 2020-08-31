@@ -221,7 +221,10 @@ section will work. The content in there is fictional.
 
 - I would like to thank the CodeInstitute for their support in the process. Most of what I've
 created is based on the Boutique Ado project and molding that into this Festival website has 
-helped me a lot to make more sense of the whole process of programming and developing.
+helped me a lot to make more sense of the whole process of programming and developing. 
+I have stayed pretty close to the processes and structures of the Boutique Ado project and had
+hoped to add some more features. The size of the project and limited time however resulted in 
+the project the way it now is. So a lot of credit to Chris and the other CodeInstitute developers.
 - A big thank you to Rinus Meesen, director of the Festival, who has continuously granted me 
 the job of building a website for years and years, even though I lacked the skill of webdevelopment
 until now.
