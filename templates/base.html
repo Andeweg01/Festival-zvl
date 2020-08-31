@@ -57,8 +57,11 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'concerts' %}">Program
+                            <a class="nav-link" href="{% url 'concerts' %}">The concerts
                             </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'tickets' %}">Ticket information</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a role="link" class="nav-link dropdown-toggle" id="locations" 
@@ -74,9 +77,6 @@
                             <a class="dropdown-item" href="{% url 'concerts' %}?location=Industrieel">Industrieel Museum Zeeland</a>
                             <a class="dropdown-item" href="{% url 'concerts' %}?location=Hof">Hof te Zande Kerk Kloosterzande</a>
                             </div>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'tickets' %}">Tickets</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a role="link" class="nav-link dropdown-toggle" id="previous-editions" 
