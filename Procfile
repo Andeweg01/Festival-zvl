@@ -1,1 +1,1 @@
-web: gunicorn festival-zvl.wsgi:application
+web: gunicorn festival_zvl.wsgi:application
