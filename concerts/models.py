@@ -36,7 +36,7 @@ class Concert(models.Model):
     concert_name = models.CharField(max_length=254, default='name')
     friendly_name = models.CharField(max_length=254,
                                      default='the full concert name')
-    concert_date = models.DateField(max_length=254, 
+    concert_date = models.DateField(max_length=254,
                                     default=datetime.date.today)
     concert_subtitle = models.CharField(max_length=254, null=True, blank=True)
     concert_theme = models.CharField(max_length=254, null=True, blank=True)
