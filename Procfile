@@ -1,1 +1,1 @@
-web: gunicorn andeweg-festival-zvl.wsgi:application
+web: gunicorn festival-zvl.wsgi:application
