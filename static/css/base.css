@@ -4,7 +4,7 @@ html {
 
 body {
     margin: 0;
-    background: url('{{ MEDIA_URL }}Oester_back.jpg') no-repeat right bottom fixed;
+    background: url('https://andeweg-festival-zvl.s3.amazonaws.com/media/Oester_back.jpg') no-repeat right bottom fixed;
     color: #00396D;
     font-family: 'Raleway', sans-serif;
     padding-top: 135px;
