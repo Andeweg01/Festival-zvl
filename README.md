@@ -76,11 +76,13 @@ user a lot of clarity about how their action work out.
 - Counter for the amount of tickets sold
 
 
-## Technologies Used
+## Technologies and API's used
 
 ### Front-end
 * [HTML5](https://en.wikipedia.org/wiki/HTML5) for the HTML structure.
 * [CSS3](https://www.w3.org/Style/CSS/Overview.en.html) for styling and editing existing (MD)Bootstrap css-code
+* [FontAwesome]() version 5.8.2. used for icons
+* [Google Fonts](https://fonts.google.com/) for using the fonts Raleway and Satisfy
 * [MDBootstrap](https://mdbootstrap.com/) framework version 4.19.1 is used for the navbar, forms, cards and much of the css code.  
 * [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) version 3.2.1 is used to work with JQuery, Bootstrap, 
     small snippets of code to make the user scroll back to the top, the Caroussel.
@@ -123,65 +125,106 @@ as
 with some yellow here and there look pleasant and have a style that suit the site.
 
 #### CRUD functionality
-- site owner on the database: The site owner can add, delete and edit concerts. This is all working well. Unused fields do not show and the presentation of the data looks good.
-- users ordering: 
+- Site owner on the database: The site owner can add, delete and edit concerts. This is all working well. Unused fields do not show and the presentation of the data looks good.
+- Shopper in the order process: In the shopping cart the user can increase or decrease the amount of tickets or delete the concert from the order. No issues there.
 
-
-
+#### Order process
+No issues when ordering. Payments are done with Stripe (webhooks show successfully in Stripe dashboard).
+After submitting the payment with the test creditcartnumber, the order is shown and confirmation email is sent to the correct address. 
+Orders are stored in the user profile and can be seen in the profile view afterwards. 
+ 
 
 ## DEPLOYMENT
-In the design phase [Adobe Dreamweaver](https://www.adobe.com/ie/products/dreamweaver.html) was used to speed up the 
-design process and make good use of the handy live view. 
-The HTML/CSS design during this process was also deployed and tested on a live server (Strato - domain Tradtracker.com). 
-
-In the process I found issues with combining Bootstrap and Materialize. In their css they use the same naming in the CSS 
-code for several navigation elements. Inspecting with Google Chrome on the live server proved to be very usefull to find 
-the issues and create workarounds in my own code. After finding more and more issues that seemed impossible to overcome I decided
-to stop using Bootstrap en continue with Materialize only.
-
-I used the GitPod IDE for testing in the required environment for the CodeInstitute courses. The HTML/CSS files 
-are pushed to the GitHub repository to handle the version control.
-
-The Flask/Python part of the project is built within the GitPod IDE and once linked to the MongoDB database, 
-deployment is done on Heroku.
 
 ### The process:
 * In GitHub a repository with full template by the CodeInstitute is generated for use with GitPod.
-* In GitPod a site structure is built with a static folder, as required for Flask project, a templates folder and
-* files to load and set the libraries, environment variables, configuration files:
-   dnspython==1.16.0  
-   Flask==1.1.2  
-   Flask-PyMongo==2.3.0  
-   heroku==0.1.4  
-   pymongo==3.10.1  
-   python-dateutil==1.5  
-   Werkzeug==1.0.1  
+* In GitPod a site is built with [Django](https://www.djangoproject.com/)
+* packages installed for this project are:
+    asgiref==3.2.10
+    boto3==1.14.51
+    botocore==1.17.51
+    dj-database-url==0.5.0
+    Django==3.1
+    django-allauth==0.42.0
+    django-countries==6.1.3
+    django-crispy-forms==1.9.2
+    django-heroku==0.3.1
+    django-storages==1.10
+    docutils==0.15.2
+    gunicorn==20.0.4
+    jmespath==0.10.0
+    oauthlib==3.1.0
+    Pillow==7.2.0
+    psycopg2==2.8.5
+    psycopg2-binary==2.8.5
+    python-dateutil==2.8.1
+    python3-openid==3.2.0
+    pytz==2020.1
+    requests-oauthlib==1.3.0
+    s3transfer==0.3.3
+    sqlparse==0.3.1
+    stripe==2.50.0
+    unicorn==1.0.1
+    whitenoise==5.2.0
+ 
+    These are stored in the file requirements.txt by using the command: `pip3 freeze --local > requirements.txt`
+    So these requirements can easily be loaded again by typing `pip3 install -r requirements.txt`
 
-   These are stored in the file requirements.txt by using the command: `pip3 freeze --local > requirements.txt`
-   So these requirements can easily be loaded again by typing `pip3 install -r requirements.txt`
 * In Heroku the app has to be created to be able to run later. 
-* It's important to have the variables 'IP' and 'HOST' set and also the Mongo URI key to be able to use the database with Heroku
-* In GitPod an env.py file is created to store that same Mongo URI variable. The env.py is stored in the .gitignore so that it doesn't push to the remote servers.
-* A Procfile is created to show that app.py will be the Python file to run and we're good to go. Type `echo web: python app.py > Procfile`
+* It's important to have the following variables in Heroku set:
+    AWS_ACCESS_KEY_ID (connect to AWS)
+    AWS_SECRET_ACCESS_KEY
+    DATABASE_URL (Postgres)
+    EMAIL_HOST_PASS (for email functionality)
+    EMAIL_HOST_USER
+    SECRET_KEY (Heroku)
+    STRIPE_PUBLIC_KEY
+    STRIPE_SECRET_KEY
+    STRIPE_WH_SECRET (for the webhooks)
+    USE_AWS
+These variables are called in the settings.py file in our Django project so they stay hidden in production.
+
+* In GitPod for this project I have not used the env.py file for environment variables, but the settings in the GitPod environment. This worked well.
+* A Procfile is created to show that the app will be handled by the package `gunicorn` when deployed.
 * In GitPod login to Heroku by typing `heroku login` and pressing the spacebar. In the preview screen the login can be done.
+This failed lately and with `heroku login -i` the credentials could be entered manually.
 * In GitPod the remote app is selected by typing `heroku git:remote -a myappname`
 * The app has to start running on Heroku by typing `heroku ps:scale web=1`
-* The normal process to push files to remote server can be used: `git add .` and `git commit . -m "comments"` and then `git push heroku master` to push to the master branch of our Heroku app.
+* The normal process to push files to remote server can be used: `git add .` and `git commit . -m "comments"` and then `git push heroku master` 
+to push to the master branch of our Heroku app.
+* In Heroku the app can be linked to GitHub with automatic deployment, so that the step `git push Heroku master` is no longer needed.
 
-To run the app.py locally we have to run the Python server `python3 -m http.server` and run `python3 app.py`.
-You can now either open a browser or the preview in GitPod.
+To run the app.py locally we have to run `python3 manage.py runserver`.
+You can now either open a browser on port 8000 after having that port made public.
 
+The database in development is sqlite3. Models are created in the Django project and they are migrated to Heroku where they are used in
+a Postgres database. This process works really well once set up properly. I did have some trouble because at some point I thought it
+would be good to have the django package installed in GitPod. This however was not the case. It caused conflicts in packages versions
+and failed to deploy on Heroku. Uninstalling Heroku solved the problem.
 
+The static files of the project (images and css) cannot be hosted on Heroku. AWS is used for that.
+S3 holds buckets where after setting all the variables right and policies on the process and folders
+the static files of the whole project are automatically collected and stored in a S3 bucket.
 
 
 ## Credits
 
 ### Content
-- The text for section Y was copied from the [Wikipedia article Z](https://en.wikipedia.org/wiki/Z)
+- The majority of the content, including images and video footage is taken from the original 
+[Festival van Zeeuwsch-Vlaanderen](https://festival-zvl.nl) website and translated
+into English, since the Festival is based in The Netherlands.
+- A few concerts for previous years are created as a test and to show how the 'previous' 
+section will work. The content in there is fictional.
 
-### Media
-- The photos used in this site were obtained from ...
 
 ### Acknowledgements
 
-- I received inspiration for this project from X
+- I would like to thank the CodeInstitute for their support in the process. Most of what I've
+created is based on the Boutique Ado project and molding that into this Festival website has 
+helped me a lot to make more sense of the whole process of programming and developing.
+- A big thank you to Rinus Meesen, director of the Festival, who has continuously granted me 
+the job of building a website for years and years, even though I lacked the skill of webdevelopment
+until now.
+- My main sources for the project have been the CodeInstitute course material, 
+[StackOverflow](https://stackoverflow.com/), the Django and Bootstrap/MDBootstrap documentation
+and some sleepless nights that occasionally give one some great insights.
