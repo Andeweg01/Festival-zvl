@@ -16,11 +16,8 @@
             The reputation of this small region of The Netherlands where life is good is well 
             served by the festival thus making it well worth preserving.</p>
             <h5 class="pearl-text text-warning">Our main sponsors for 2020:</h5>
-            <img src="/media/Sponsors.gif" class="img-fluid rounded" alt="Sponsors2020">
-            <a href="{% url 'concerts' %}" class="btn btn-outline-blue btn-lg mb-5 rounded-top">Enjoy
-                <i class="fas fa-music ml-2"></i>
-            </a>
-            <h5 class="pearl-text text-warning">From our main sponsor:</h5>
+            <img src="{{ MEDIA_URL }}Sponsors.gif" class="img-fluid rounded" alt="Sponsors2020">
+            <h5 class="pearl-text text-warning mt-4">From our main sponsor:</h5>
             <p>North Sea Port is the proud sponsor of Gent Jazz, Flanders Festival Ghent, Film Fest Gent, 
             Festival of Zeeuwsch-Vlaanderen, Zeeland Nazomerfestival and Four Freedom Awards.
             North Sea Port and a number of cultural organisations are joining forces to put a lot of 
@@ -48,6 +45,9 @@
             for the 32nd edition of the Festival to take place from 18 September to 16 October, with some 
             modifications. The festival's theme, ‘Boundless Classical Pearls’, is a nod to our cross-border 
             character and our good relationship with Flanders/Belgium.</p>
+            <a href="{% url 'concerts' %}" class="btn btn-outline-blue btn-lg my-5 rounded-top">Enjoy
+                <i class="fas fa-music ml-2"></i>
+            </a>
         </div>
     </div>
 </div>
