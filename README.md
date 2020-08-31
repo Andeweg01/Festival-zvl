@@ -9,7 +9,6 @@ Over ten years I've had the privilege to create the program brochures, different
 ## UX
  
 <img src="https://github.com/Andeweg01/Festival-zvl/blob/master/img/Festival-zvl_project_Page_1.jpg?raw=true" style="margin: 0;">
-<img src="https://github.com/Andeweg01/Festival-zvl/blob/master/img/Festival-zvl_project_Page_2.jpg?raw=true" style="margin: 0;">
 <img src="https://github.com/Andeweg01/Festival-zvl/blob/master/img/Festival-zvl_project_Page_3.jpg?raw=true" style="margin: 0;">
 <img src="https://github.com/Andeweg01/Festival-zvl/blob/master/img/Festival-zvl_project_Page_4.jpg?raw=true" style="margin: 0;">
 <img src="https://github.com/Andeweg01/Festival-zvl/blob/master/img/Festival-zvl_project_Page_5.jpg?raw=true" style="margin: 0;">
@@ -140,48 +139,49 @@ Orders are stored in the user profile and can be seen in the profile view afterw
 * In GitHub a repository with full template by the CodeInstitute is generated for use with GitPod.
 * In GitPod a site is built with [Django](https://www.djangoproject.com/)
 * packages installed for this project are:
-    asgiref==3.2.10
-    boto3==1.14.51
-    botocore==1.17.51
-    dj-database-url==0.5.0
-    Django==3.1
-    django-allauth==0.42.0
-    django-countries==6.1.3
-    django-crispy-forms==1.9.2
-    django-heroku==0.3.1
-    django-storages==1.10
-    docutils==0.15.2
-    gunicorn==20.0.4
-    jmespath==0.10.0
-    oauthlib==3.1.0
-    Pillow==7.2.0
-    psycopg2==2.8.5
-    psycopg2-binary==2.8.5
-    python-dateutil==2.8.1
-    python3-openid==3.2.0
-    pytz==2020.1
-    requests-oauthlib==1.3.0
-    s3transfer==0.3.3
-    sqlparse==0.3.1
-    stripe==2.50.0
-    unicorn==1.0.1
-    whitenoise==5.2.0
+    - asgiref==3.2.10
+    - boto3==1.14.51
+    - botocore==1.17.51
+    - dj-database-url==0.5.0
+    - Django==3.1
+    - django-allauth==0.42.0
+    - django-countries==6.1.3
+    - django-crispy-forms==1.9.2
+    - django-heroku==0.3.1
+    - django-storages==1.10
+    - docutils==0.15.2
+    - gunicorn==20.0.4
+    - jmespath==0.10.0
+    - oauthlib==3.1.0
+    - Pillow==7.2.0
+    - psycopg2==2.8.5
+    - psycopg2-binary==2.8.5
+    - python-dateutil==2.8.1
+    - python3-openid==3.2.0
+    - pytz==2020.1
+    - requests-oauthlib==1.3.0
+    - vs3transfer==0.3.3
+    - sqlparse==0.3.1
+    - stripe==2.50.0
+    - unicorn==1.0.1
+    - whitenoise==5.2.0
  
     These are stored in the file requirements.txt by using the command: `pip3 freeze --local > requirements.txt`
     So these requirements can easily be loaded again by typing `pip3 install -r requirements.txt`
 
 * In Heroku the app has to be created to be able to run later. 
 * It's important to have the following variables in Heroku set:
-    AWS_ACCESS_KEY_ID (connect to AWS)
-    AWS_SECRET_ACCESS_KEY
-    DATABASE_URL (Postgres)
-    EMAIL_HOST_PASS (for email functionality)
-    EMAIL_HOST_USER
-    SECRET_KEY (Heroku)
-    STRIPE_PUBLIC_KEY
-    STRIPE_SECRET_KEY
-    STRIPE_WH_SECRET (for the webhooks)
-    USE_AWS
+    - AWS_ACCESS_KEY_ID (connect to AWS)
+    - AWS_SECRET_ACCESS_KEY
+    - DATABASE_URL (Postgres)
+    - EMAIL_HOST_PASS (for email functionality)
+    - EMAIL_HOST_USER
+    - SECRET_KEY (Heroku)
+    - STRIPE_PUBLIC_KEY
+    - STRIPE_SECRET_KEY
+    - STRIPE_WH_SECRET (for the webhooks)
+    - USE_AWS
+
 These variables are called in the settings.py file in our Django project so they stay hidden in production.
 
 * In GitPod for this project I have not used the env.py file for environment variables, but the settings in the GitPod environment. This worked well.
