@@ -9,22 +9,51 @@ Over ten years I've had the privilege to create the program brochures, different
 ## UX
  
 <img src="https://github.com/Andeweg01/Festival-zvl/blob/master/img/Festival-zvl_project_Page_1.jpg?raw=true" style="margin: 0;">
+<img src="https://github.com/Andeweg01/Festival-zvl/blob/master/img/Festival-zvl_project_Page_2.jpg?raw=true" style="margin: 0;">
+<img src="https://github.com/Andeweg01/Festival-zvl/blob/master/img/Festival-zvl_project_Page_3.jpg?raw=true" style="margin: 0;">
+<img src="https://github.com/Andeweg01/Festival-zvl/blob/master/img/Festival-zvl_project_Page_4.jpg?raw=true" style="margin: 0;">
+<img src="https://github.com/Andeweg01/Festival-zvl/blob/master/img/Festival-zvl_project_Page_5.jpg?raw=true" style="margin: 0;">
 
 
 ## Features
 
-In this section, you should go over the different parts of your project, and describe each in a sentence or so.
  
 ### Existing Features
-- Feature 1 - allows users X to achieve Y, by having them fill out Z
-- ...
 
-For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
+##### Navbar:
+Provides the festival logo, and links to the 'concerts', additional 'ticket information', the 'locations' of concerts, 
+the 'previous' editions/years of the festival, a page with 'sponsoring' information and 'media' which holds some footage
+from previous years, interviews and previews. 
+On small screens the navigation collapses into a hamburger menu (MDBootstrap).
 
-In addition, you may also use this section to discuss plans for additional features to be implemented in the future:
+##### Selection options:
+'Concerts' shows all concerts, under 'locations' you can view the concerts per location (the nature of the festival is that
+mostly local people visit and like to see what's the nearest concert available), under 'previous' the concerts per year or
+edition can be filtered.
+
+##### Concert presentation:
+The results are shown on the concert page as tweaked MDBootstrap cards with, when populated, the fields available for the concert,
+edition and location. 
+
+##### Ticket information:
+The original website has more information here, since the ticket sales are outsourced, but some information on returning tickets
+and buying at the location is given here if someone would wish not to buy online.
+
+##### Locations:
+Concerts per location can be shown here.
+
+##### Previous:
+We're about to start the 32nd edition of the festival and a lot of digital material and information is still available. So here
+the previous editions can be populated to serve as a catalogue and impression of what the festival stands for.
+
+##### Sponsoring:
+This years' sponsors are presented and the main sponsor presents an editorial on it's cultural plans and involvement.
+
 
 ### Features Left to Implement
-- Another feature idea
+- Locations in the database can be used to implement Google Maps functionality: creating directions and showing the location on the map.
+- For more easily populating the database a time/date picker can be implemented.
+- 
 
 ## Technologies Used
 
